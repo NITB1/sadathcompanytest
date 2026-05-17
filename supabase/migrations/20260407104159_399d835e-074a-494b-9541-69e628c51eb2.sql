@@ -1,0 +1,1 @@
+ALTER TABLE public.submissions ADD COLUMN linkedin_budget integer DEFAULT 100;
