@@ -11,21 +11,21 @@ export default function Terms() {
         <h1 className="font-serif text-4xl md:text-5xl mb-8">Terms of Service</h1>
         <p className="text-muted-foreground text-sm mb-4">Last updated: March 2026</p>
 
-        <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground leading-relaxed">
+        <div className="prose max-w-none space-y-6 text-muted-foreground leading-relaxed">
           <h2 className="font-serif text-xl text-foreground">Service Overview</h2>
-          <p>Najah Careers provides recruitment and talent acquisition services. By purchasing a package, you agree to these terms. Our services include job posting, candidate screening, and shortlist delivery.</p>
+          <p>Najah Studio provides web design, development, hosting, e-commerce, and startup consulting services. By purchasing a package, you agree to these terms.</p>
 
           <h2 className="font-serif text-xl text-foreground">Payments & Refunds</h2>
-          <p>All payments are processed securely through Stripe. Payments are non-refundable once the recruitment campaign has been initiated. If we are unable to deliver the agreed shortlist within the posting period, we will extend the campaign at no additional cost.</p>
+          <p>All payments are processed securely through Stripe. Deposits are non-refundable once design work has begun. If we are unable to deliver the agreed scope within the timeline, we will extend the engagement at no additional cost.</p>
 
-          <h2 className="font-serif text-xl text-foreground">Service Delivery</h2>
-          <p>We aim to deliver your first shortlist within 72 hours of campaign launch. The number of shortlisted candidates corresponds to your selected package. We guarantee quality screening but cannot guarantee hiring outcomes.</p>
+          <h2 className="font-serif text-xl text-foreground">Project Delivery</h2>
+          <p>We aim to begin discovery within 5 business days of payment. Project timelines vary based on scope. We include up to 2 rounds of revisions per package; additional revisions are billed hourly.</p>
 
           <h2 className="font-serif text-xl text-foreground">Client Responsibilities</h2>
-          <p>You are responsible for providing accurate job descriptions and requirements. Misleading or fraudulent job postings will result in service termination without refund.</p>
+          <p>You are responsible for providing accurate brand assets, content, and timely feedback. Delays in feedback may extend the project timeline.</p>
 
-          <h2 className="font-serif text-xl text-foreground">Limitation of Liability</h2>
-          <p>Najah Careers is not liable for hiring decisions made based on our shortlists. Our liability is limited to the amount paid for the service package.</p>
+          <h2 className="font-serif text-xl text-foreground">Ownership & Hosting</h2>
+          <p>Upon final payment, you own the design and code of your website. Hosting is provided on a yearly subscription basis and can be migrated to your own provider on request.</p>
 
           <h2 className="font-serif text-xl text-foreground">Changes to Terms</h2>
           <p>We reserve the right to update these terms at any time. Continued use of our services constitutes acceptance of updated terms.</p>

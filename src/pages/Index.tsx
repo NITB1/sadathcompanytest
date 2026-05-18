@@ -1,22 +1,20 @@
 import { motion, AnimatePresence } from "motion/react";
-import najahLogo from "@/assets/najah-logo.png";
 import {
   Menu,
   ArrowRight,
   Globe,
   CheckCircle2,
-  Filter,
-  Target,
-  Linkedin,
-  Briefcase,
   CreditCard,
   X,
   ChevronDown,
   Loader2,
-  Users,
-  FileText,
-  Search,
-  Send,
+  Sparkles,
+  PenTool,
+  Code2,
+  Rocket,
+  ShoppingBag,
+  Server,
+  Compass,
 } from "lucide-react";
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -27,146 +25,146 @@ type Language = "en" | "ar";
 const translations = {
   en: {
     nav: {
-      howItWorks: "How it Works",
-      pricing: "Pricing",
-      contact: "Work with Us",
-      apply: "Hire Now",
+      howItWorks: "Process",
+      pricing: "Services",
+      contact: "Start a Project",
+      apply: "Get a Quote",
     },
     hero: {
-      tagline: "Precision in Talent Acquisition",
-      title: "We find the talent, you build the future",
+      tagline: "Web Design Studio · For Founders",
+      title: "We design websites, you launch ideas",
       description:
-        "Stop wasting 6+ hours scrolling through CVs. We post your job on LinkedIn, advertise it, filter thousands of applicants, and deliver only the top-tier candidates directly to your desk.",
-      cta: "Start Hiring",
+        "Najah Studio is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
+      cta: "Start a Project",
     },
     services: {
-      title: "How it Works",
+      title: "Our Process",
       subtitle:
-        "A simple, transparent process from job brief to shortlisted candidates.",
+        "A focused, transparent sprint from blank page to shipped product.",
       step1: {
-        title: "Submit Your Brief",
-        desc: "Fill out our form with your job details, requirements, and preferred hiring plan. Set your LinkedIn ad budget.",
+        title: "Discovery Call",
+        desc: "We sit with founders to understand the product, the audience, and the story you want to tell.",
       },
       step2: {
-        title: "We Post & Advertise",
-        desc: "Your job is posted on LinkedIn using our premium accounts. Your ad budget drives targeted visibility to qualified candidates.",
+        title: "Strategy & Wireframes",
+        desc: "We map the site structure, content priorities, and conversion flows before a single pixel is drawn.",
       },
       step3: {
-        title: "Applications Flow In",
-        desc: "We collect and organize all incoming CVs and applications as they come in through the LinkedIn campaign.",
+        title: "Visual Design",
+        desc: "Custom, editorial design tailored to your brand — never templates. Reviewed in 2 rounds.",
       },
       step4: {
-        title: "We Screen & Shortlist",
-        desc: "Our team reviews every application, filtering for technical fit and cultural alignment to build your shortlist.",
+        title: "Build & E-Commerce",
+        desc: "Hand-crafted code, fast performance, accessible by default. Stripe, Shopify, or headless CMS as needed.",
       },
       step5: {
-        title: "You Get Results",
-        desc: "Receive your curated shortlist of top candidates. Hiring Pro clients also get first-round interview notes.",
+        title: "Launch & Host",
+        desc: "We deploy on managed hosting, configure your domain, and stay on call after launch.",
       },
     },
     pricing: {
-      title: "Hiring Plans",
-      subtitle: "Choose the plan that fits your hiring needs. Add a LinkedIn ad budget to maximize reach.",
-      perPackage: "per job post",
+      title: "Studio Packages",
+      subtitle: "Two ways to work with us. Add a managed hosting plan to keep things running smoothly.",
+      perPackage: "starting at",
       total: "Total",
-      select: "Select Plan",
+      select: "Choose Package",
     },
     form: {
-      title: "Work with Us",
-      subtitle: "Tell us about your next great hire.",
+      title: "Start a Project",
+      subtitle: "Tell us about your idea — we'll get back within 24 hours.",
       contactInfo: "Contact Information",
       fullName: "Full Name",
       email: "Email Address",
-      companyName: "Company Name",
-      role: "Posting Role",
-      description: "Short job description and must haves",
-      descriptionHint: "We will research and refine this for you.",
-      visaStatus: "Visa Status Requirement",
+      companyName: "Company / Startup",
+      role: "Project Type",
+      description: "Briefly describe your project and goals",
+      descriptionHint: "Pages, features, references — anything helps.",
+      visaStatus: "Project Stage",
       visaOptions: [
-        "GCC Resident",
-        "Transferable Iqama / ID",
-        "No Preference",
+        "Pre-launch idea",
+        "Existing brand, no site",
+        "Redesign of current site",
       ],
-      openings: "Number of Openings",
-      length: "Posting Length",
+      openings: "Number of Pages",
+      length: "Timeline",
       weeks: "Weeks",
       industry: "Industry",
-      experience: "Experience Level",
+      experience: "Budget Range",
       submit: "Proceed to Checkout",
       checkoutTitle: "Secure Checkout",
       checkoutDesc:
-        "Complete your payment via Stripe to launch your campaign.",
+        "Reserve your project slot — complete the deposit via Stripe.",
     },
   },
   ar: {
     nav: {
-      howItWorks: "كيف نعمل",
-      pricing: "الأسعار",
-      contact: "اعمل معنا",
-      apply: "وظف الآن",
+      howItWorks: "العملية",
+      pricing: "الخدمات",
+      contact: "ابدأ مشروعك",
+      apply: "اطلب عرض سعر",
     },
     hero: {
-      tagline: "الدقة في استقطاب المواهب",
-      title: "نحن نجد الموهبة، وأنت تبني المستقبل",
+      tagline: "استوديو تصميم مواقع · للمؤسسين",
+      title: "نحن نصمم المواقع، وأنت تُطلق الأفكار",
       description:
-        "توقف عن إضاعة أكثر من 6 ساعات في تصفح السير الذاتية. ننشر وظيفتك على لينكدإن، ونعلن عنها، ونصفي آلاف المتقدمين، ونسلمك فقط أفضل المرشحين.",
-      cta: "ابدأ التوظيف",
+        "نجاح ستوديو وكالة تصميم مواقع للشركات الناشئة. نصمم مواقع جميلة، ونوفر الاستضافة، ونبني تجارب تجارة إلكترونية، ونستشير المؤسسين من الفكرة إلى الإطلاق.",
+      cta: "ابدأ مشروعك",
     },
     services: {
-      title: "كيف يعمل",
-      subtitle: "عملية بسيطة وشفافة من ملخص الوظيفة إلى المرشحين المختصرين.",
+      title: "عمليتنا",
+      subtitle: "سبرنت مركز وشفاف من الفكرة إلى الإطلاق.",
       step1: {
-        title: "أرسل طلبك",
-        desc: "املأ النموذج بتفاصيل الوظيفة ومتطلباتك وخطة التوظيف المفضلة. حدد ميزانية إعلان لينكدإن.",
+        title: "مكالمة استكشاف",
+        desc: "نجلس مع المؤسسين لفهم المنتج والجمهور والقصة التي تريد سردها.",
       },
       step2: {
-        title: "ننشر ونعلن",
-        desc: "يتم نشر وظيفتك على لينكدإن باستخدام حساباتنا المتميزة. ميزانيتك الإعلانية تدفع الظهور المستهدف.",
+        title: "الاستراتيجية والمخططات",
+        desc: "نرسم بنية الموقع وأولويات المحتوى وتدفقات التحويل قبل رسم أي بكسل.",
       },
       step3: {
-        title: "الطلبات تتدفق",
-        desc: "نجمع وننظم جميع السير الذاتية والطلبات الواردة من حملة لينكدإن.",
+        title: "التصميم البصري",
+        desc: "تصميم مخصص لعلامتك التجارية — ليست قوالب أبدًا. مراجعة في جولتين.",
       },
       step4: {
-        title: "نفحص ونختصر",
-        desc: "يراجع فريقنا كل طلب، ويصفي حسب الكفاءة الفنية والتوافق الثقافي لبناء قائمتك المختصرة.",
+        title: "البناء والتجارة الإلكترونية",
+        desc: "كود مكتوب بعناية، أداء سريع، وصول للجميع. Stripe أو Shopify أو CMS حسب الحاجة.",
       },
       step5: {
-        title: "تحصل على النتائج",
-        desc: "استلم قائمتك المختصرة المنسقة. عملاء التوظيف الاحترافي يحصلون أيضًا على ملاحظات الجولة الأولى.",
+        title: "الإطلاق والاستضافة",
+        desc: "ننشر على استضافة مُدارة، ونضبط النطاق، ونبقى على استعداد بعد الإطلاق.",
       },
     },
     pricing: {
-      title: "خطط التوظيف",
-      subtitle: "اختر الخطة التي تناسب احتياجات التوظيف لديك. أضف ميزانية إعلان لينكدإن لتعظيم الوصول.",
-      perPackage: "لكل إعلان وظيفي",
+      title: "باقات الاستوديو",
+      subtitle: "طريقتان للعمل معنا. أضف خطة استضافة مُدارة لإبقاء كل شيء يعمل بسلاسة.",
+      perPackage: "تبدأ من",
       total: "الإجمالي",
-      select: "اختر الخطة",
+      select: "اختر الباقة",
     },
     form: {
-      title: "اعمل معنا",
-      subtitle: "أخبرنا عن موظفك الرائع القادم.",
+      title: "ابدأ مشروعك",
+      subtitle: "أخبرنا عن فكرتك — سنرد خلال 24 ساعة.",
       contactInfo: "معلومات الاتصال",
       fullName: "الاسم الكامل",
       email: "البريد الإلكتروني",
-      companyName: "اسم الشركة",
-      role: "الدور الوظيفي",
-      description: "وصف وظيفي قصير والمتطلبات الأساسية",
-      descriptionHint: "سنقوم بالبحث وتحسين هذا لك.",
-      visaStatus: "متطلبات حالة التأشيرة",
+      companyName: "الشركة / الشركة الناشئة",
+      role: "نوع المشروع",
+      description: "صف مشروعك وأهدافك بإيجاز",
+      descriptionHint: "الصفحات، الميزات، المراجع — أي شيء يساعد.",
+      visaStatus: "مرحلة المشروع",
       visaOptions: [
-        "مقيم في دول مجلس التعاون الخليجي",
-        "إقامة / هوية قابلة للنقل",
-        "لا يوجد تفضيل",
+        "فكرة قبل الإطلاق",
+        "علامة تجارية قائمة بدون موقع",
+        "إعادة تصميم موقع حالي",
       ],
-      openings: "عدد الشواغر",
-      length: "مدة النشر",
+      openings: "عدد الصفحات",
+      length: "الجدول الزمني",
       weeks: "أسابيع",
       industry: "الصناعة",
-      experience: "مستوى الخبرة",
+      experience: "نطاق الميزانية",
       submit: "المتابعة للدفع",
       checkoutTitle: "الدفع الآمن",
-      checkoutDesc: "أكمل دفعك عبر Stripe لإطلاق حملتك.",
+      checkoutDesc: "احجز مكان مشروعك — أكمل العربون عبر Stripe.",
     },
   },
 };
@@ -180,7 +178,7 @@ export default function Index() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState<number>(0);
   const [linkedinBudget, setLinkedinBudget] = useState<number>(100);
-  const [shortlistCount, setShortlistCount] = useState<number>(10);
+  const [shortlistCount, setShortlistCount] = useState<number>(4);
   const [isProcessing, setIsProcessing] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -203,41 +201,41 @@ export default function Index() {
   const pricingOptions = [
     {
       tier: "Basic",
-      label: lang === "en" ? "Hiring Basic" : "التوظيف الأساسي",
+      label: lang === "en" ? "Launch" : "إطلاق",
       priceUsd: 60,
       priceSar: 225,
       features: lang === "en"
         ? [
-            "LinkedIn job posting",
-            "Job advertisement & promotion",
-            "CV collection & organization",
-            "10 shortlisted candidates",
+            "Up to 5-page custom website",
+            "Mobile-first responsive design",
+            "1 year managed hosting",
+            "Basic SEO setup",
           ]
         : [
-            "نشر الوظيفة على لينكدإن",
-            "إعلان وترويج الوظيفة",
-            "جمع وتنظيم السير الذاتية",
-            "10 مرشحين مختصرين",
+            "موقع مخصص حتى 5 صفحات",
+            "تصميم متجاوب للجوال أولاً",
+            "استضافة مُدارة لمدة عام",
+            "إعداد SEO أساسي",
           ],
       badge: null,
     },
     {
       tier: "Pro",
-      label: lang === "en" ? "Hiring Pro" : "التوظيف الاحترافي",
+      label: lang === "en" ? "Scale" : "نمو",
       priceUsd: 100,
       priceSar: 375,
       features: lang === "en"
         ? [
-            "Everything in Basic",
-            "First-round interview notes",
-            "Custom shortlist size",
-            "Priority support",
+            "Everything in Launch",
+            "E-commerce / Stripe integration",
+            "Custom CMS or blog",
+            "Founder consulting calls",
           ]
         : [
-            "كل ما في الأساسي",
-            "ملاحظات المقابلة الأولى",
-            "حجم قائمة مختصرة مخصص",
-            "دعم ذو أولوية",
+            "كل ما في إطلاق",
+            "تجارة إلكترونية / تكامل Stripe",
+            "CMS أو مدونة مخصصة",
+            "جلسات استشارية للمؤسس",
           ],
       badge: lang === "en" ? "Recommended" : "موصى به",
     },
@@ -302,11 +300,9 @@ export default function Index() {
           className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
           onClick={() => scrollToSection("hero")}
         >
-          <img
-            src={najahLogo}
-            alt="Najah Careers Logo"
-            className="w-36 h-36 object-contain"
-          />
+          <span className="font-serif text-2xl md:text-3xl tracking-tight leading-none">
+            Najah<span className="italic"> Studio</span>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
@@ -381,16 +377,8 @@ export default function Index() {
         className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden"
       >
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="object-cover w-full h-full opacity-30 grayscale"
-          >
-            <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--muted))_0%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,hsl(var(--background))_100%)]" />
         </div>
 
         <motion.div
@@ -517,25 +505,25 @@ export default function Index() {
             ))}
           </div>
 
-          {/* LinkedIn Budget Info */}
+          {/* Hosting Add-on Info */}
           <div className="max-w-4xl mx-auto">
             <div className="bg-secondary/50 border border-border rounded-3xl p-8 md:p-10 text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Linkedin size={24} className="text-[#0A66C2]" />
+                <Server size={22} />
                 <h3 className="font-serif text-2xl">
-                  {lang === "en" ? "LinkedIn Ad Budget" : "ميزانية إعلان لينكدإن"}
+                  {lang === "en" ? "Managed Hosting Add-on" : "إضافة استضافة مُدارة"}
                 </h3>
               </div>
               <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-6">
                 {lang === "en"
-                  ? "LinkedIn charges its own advertising fees to promote your job post. We recommend a budget between $50–$200 for optimal reach. This is added to your hiring plan cost."
-                  : "يفرض لينكدإن رسوم إعلان خاصة للترويج لإعلان وظيفتك. نوصي بميزانية بين 50–200 دولار للوصول الأمثل. يُضاف هذا إلى تكلفة خطة التوظيف."}
+                  ? "Premium managed hosting with global CDN, daily backups, SSL, and uptime monitoring. We recommend a budget between $50–$200/year depending on traffic. Added on top of your package."
+                  : "استضافة مُدارة متميزة مع CDN عالمي ونسخ احتياطية يومية و SSL ومراقبة وقت التشغيل. نوصي بميزانية بين 50–200 دولار/سنة حسب حركة المرور. تُضاف فوق باقتك."}
               </p>
               <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
                 <span>$50</span>
                 <div className="h-px w-16 bg-border" />
                 <span className="font-bold text-foreground">
-                  {lang === "en" ? "You set the amount in the form below" : "حدد المبلغ في النموذج أدناه"}
+                  {lang === "en" ? "Set your amount in the form below" : "حدد المبلغ في النموذج أدناه"}
                 </span>
                 <div className="h-px w-16 bg-border" />
                 <span>$200+</span>
@@ -615,9 +603,9 @@ export default function Index() {
                       {t.form.experience}
                     </label>
                     <select name="experienceLevel" className={`${inputClasses} appearance-none`}>
-                      <option>Entry Level</option>
-                      <option>Mid-Senior</option>
-                      <option>Director / Executive</option>
+                      <option>$2K – $5K</option>
+                      <option>$5K – $15K</option>
+                      <option>$15K+</option>
                     </select>
                   </div>
                 </div>
@@ -675,7 +663,7 @@ export default function Index() {
                   {/* Plan Selection */}
                   <div className="bg-secondary/30 p-6 rounded-2xl border border-border space-y-4">
                     <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {lang === "en" ? "Hiring Plan" : "خطة التوظيف"}
+                      {lang === "en" ? "Studio Package" : "باقة الاستوديو"}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {pricingOptions.map((opt, i) => (
@@ -703,25 +691,25 @@ export default function Index() {
                     {selectedPkg === 1 && (
                       <div className="space-y-2 pt-2">
                         <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                          {lang === "en" ? "Shortlist Size" : "حجم القائمة المختصرة"}
+                          {lang === "en" ? "Consulting Sessions" : "جلسات استشارية"}
                         </label>
                         <div className="flex items-center gap-3">
                           <input
-                            type="number" min="5" max="50" value={shortlistCount}
-                            onChange={(e) => setShortlistCount(Math.max(5, Math.min(50, Number(e.target.value) || 10)))}
+                            type="number" min="2" max="20" value={shortlistCount}
+                            onChange={(e) => setShortlistCount(Math.max(2, Math.min(20, Number(e.target.value) || 4)))}
                             className={`${inputClasses} w-20 text-center`}
                           />
-                          <span className="text-xs text-muted-foreground">{lang === "en" ? "candidates" : "مرشحين"}</span>
+                          <span className="text-xs text-muted-foreground">{lang === "en" ? "calls" : "مكالمات"}</span>
                         </div>
                       </div>
                     )}
                   </div>
 
-                  {/* LinkedIn Budget */}
+                  {/* Hosting Budget */}
                   <div className="bg-secondary/30 p-6 rounded-2xl border border-border space-y-4">
                     <label className="text-[10px] uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                      <Linkedin size={12} className="text-[#0A66C2]" />
-                      {lang === "en" ? "LinkedIn Ad Budget" : "ميزانية إعلان لينكدإن"}
+                      <Server size={12} />
+                      {lang === "en" ? "Hosting Budget (yr)" : "ميزانية الاستضافة (سنويًا)"}
                     </label>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold">${linkedinBudget}</span>
@@ -734,7 +722,7 @@ export default function Index() {
                     />
                     <div className="flex justify-between text-[9px] text-muted-foreground uppercase tracking-widest">
                       <span>$50</span>
-                      <span className="text-emerald-500 font-bold">{lang === "en" ? "Rec: $100–$200" : "موصى: $100–$200"}</span>
+                      <span className="font-bold">{lang === "en" ? "Rec: $100–$200" : "موصى: $100–$200"}</span>
                       <span>$500</span>
                     </div>
                   </div>
@@ -750,8 +738,8 @@ export default function Index() {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground flex items-center gap-1">
-                        <Linkedin size={10} className="text-[#0A66C2]" />
-                        LinkedIn
+                        <Server size={10} />
+                        {lang === "en" ? "Hosting" : "استضافة"}
                       </span>
                       <span className="font-bold">${linkedinBudget}</span>
                     </div>
@@ -821,15 +809,15 @@ export default function Index() {
                   </div>
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50 flex items-center gap-1.5">
-                      <Linkedin size={12} />
-                      LinkedIn Budget
+                      <Server size={12} />
+                      Hosting Budget
                     </span>
                     <span className="font-bold">${linkedinBudget}</span>
                   </div>
                   {selectedPkg === 1 && (
                     <div className="flex justify-between text-sm border-b border-border pb-4">
                       <span className="opacity-50">
-                        {lang === "en" ? "Shortlisted Candidates" : "المرشحين المختصرين"}
+                        {lang === "en" ? "Consulting Sessions" : "جلسات استشارية"}
                       </span>
                       <span className="font-bold">{shortlistCount}</span>
                     </div>
@@ -892,11 +880,11 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { icon: <FileText size={20} />, ...t.services.step1 },
-              { icon: <Linkedin size={20} />, ...t.services.step2 },
-              { icon: <Users size={20} />, ...t.services.step3 },
-              { icon: <Search size={20} />, ...t.services.step4 },
-              { icon: <Send size={20} />, ...t.services.step5 },
+              { icon: <Compass size={20} />, ...t.services.step1 },
+              { icon: <PenTool size={20} />, ...t.services.step2 },
+              { icon: <Sparkles size={20} />, ...t.services.step3 },
+              { icon: <Code2 size={20} />, ...t.services.step4 },
+              { icon: <Rocket size={20} />, ...t.services.step5 },
             ].map((step, i) => (
               <motion.div
                 key={i}
@@ -929,17 +917,12 @@ export default function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img
-                src={najahLogo}
-                alt="Najah Logo"
-                className="w-28 h-28 object-contain opacity-40"
-              />
-              <h2 className="font-serif text-lg tracking-[0.1em] uppercase opacity-40">
-                Najah Careers
+              <h2 className="font-serif text-2xl tracking-tight opacity-60">
+                Najah<span className="italic"> Studio</span>
               </h2>
             </div>
-            <p className="text-[10px] tracking-[0.2em] uppercase opacity-30">
-              © 2026 Najah Recruitment — Riyadh, Saudi Arabia
+            <p className="text-[10px] tracking-[0.2em] uppercase opacity-40">
+              © 2026 Najah Studio — Riyadh, Saudi Arabia
             </p>
           </div>
 
