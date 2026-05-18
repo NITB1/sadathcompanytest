@@ -871,18 +871,16 @@ export default function Index() {
         className="py-32 px-6 md:px-12 bg-background border-t border-border"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
-            <div className="max-w-2xl">
-              <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-4 block">
-                01 — {lang === "en" ? "Process" : "العملية"}
-              </span>
-              <h2 className="font-serif text-4xl md:text-6xl mb-6">
-                {t.services.title}
-              </h2>
-              <p className="text-muted-foreground text-lg font-serif italic">
-                {t.services.subtitle}
-              </p>
-            </div>
+          <div className="text-center mb-20">
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-4 block">
+              01 — {lang === "en" ? "Process" : "العملية"}
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6">
+              {t.services.title}
+            </h2>
+            <p className="text-muted-foreground text-lg font-serif italic max-w-2xl mx-auto">
+              {t.services.subtitle}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
