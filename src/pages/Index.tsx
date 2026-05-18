@@ -514,25 +514,25 @@ export default function Index() {
             ))}
           </div>
 
-          {/* LinkedIn Budget Info */}
+          {/* Hosting Add-on Info */}
           <div className="max-w-4xl mx-auto">
             <div className="bg-secondary/50 border border-border rounded-3xl p-8 md:p-10 text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Linkedin size={24} className="text-[#0A66C2]" />
+                <Server size={22} />
                 <h3 className="font-serif text-2xl">
-                  {lang === "en" ? "LinkedIn Ad Budget" : "ميزانية إعلان لينكدإن"}
+                  {lang === "en" ? "Managed Hosting Add-on" : "إضافة استضافة مُدارة"}
                 </h3>
               </div>
               <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-6">
                 {lang === "en"
-                  ? "LinkedIn charges its own advertising fees to promote your job post. We recommend a budget between $50–$200 for optimal reach. This is added to your hiring plan cost."
-                  : "يفرض لينكدإن رسوم إعلان خاصة للترويج لإعلان وظيفتك. نوصي بميزانية بين 50–200 دولار للوصول الأمثل. يُضاف هذا إلى تكلفة خطة التوظيف."}
+                  ? "Premium managed hosting with global CDN, daily backups, SSL, and uptime monitoring. We recommend a budget between $50–$200/year depending on traffic. Added on top of your package."
+                  : "استضافة مُدارة متميزة مع CDN عالمي ونسخ احتياطية يومية و SSL ومراقبة وقت التشغيل. نوصي بميزانية بين 50–200 دولار/سنة حسب حركة المرور. تُضاف فوق باقتك."}
               </p>
               <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
                 <span>$50</span>
                 <div className="h-px w-16 bg-border" />
                 <span className="font-bold text-foreground">
-                  {lang === "en" ? "You set the amount in the form below" : "حدد المبلغ في النموذج أدناه"}
+                  {lang === "en" ? "Set your amount in the form below" : "حدد المبلغ في النموذج أدناه"}
                 </span>
                 <div className="h-px w-16 bg-border" />
                 <span>$200+</span>
