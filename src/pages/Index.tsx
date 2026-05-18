@@ -71,7 +71,7 @@ const translations = {
       select: "Choose Package",
     },
     form: {
-      title: "Start a Project",
+      title: "Get Started",
       subtitle: "Tell us about your idea — we'll get back within 24 hours.",
       contactInfo: "Contact Information",
       fullName: "Full Name",
