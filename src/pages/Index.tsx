@@ -669,8 +669,7 @@ export default function Index() {
                   <div className="flex justify-between text-xl">
                     <span className="opacity-50">{t.pricing.total}</span>
                     <div className="text-right">
-                      <span className="font-bold">${totalPrice}</span>
-                      <span className="block text-sm opacity-50">≈ {totalSar} SAR</span>
+                      <span className="font-bold">£{totalPrice}</span>
                     </div>
                   </div>
                 </div>
