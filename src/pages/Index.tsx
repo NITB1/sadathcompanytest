@@ -656,7 +656,7 @@ export default function Index() {
                       <Server size={12} />
                       Hosting Budget
                     </span>
-                    <span className="font-bold">${linkedinBudget}</span>
+                    <span className="font-bold">£{linkedinBudget}</span>
                   </div>
                   {selectedPkg === 1 && (
                     <div className="flex justify-between text-sm border-b border-border pb-4">
