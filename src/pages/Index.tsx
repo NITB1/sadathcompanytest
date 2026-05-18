@@ -319,28 +319,13 @@ export default function Index() {
           <img src={sadathLogo} alt="Sadath Company" className="h-32 md:h-48 w-auto object-contain" />
         </div>
 
-        <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
-          <button
-            onClick={() => scrollToSection("process")}
-            className="hover:opacity-60 transition-opacity"
-          >
-            {t.nav.howItWorks}
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
-          >
-            {t.nav.contact}
-          </button>
-        </div>
-
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
           <button
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="flex items-center space-x-2 rtl:space-x-reverse text-[10px] font-bold tracking-widest uppercase bg-secondary/60 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-accent transition-all"
+            onClick={() => scrollToSection("contact")}
+            className="group hidden sm:flex items-center space-x-2 rtl:space-x-reverse text-xs md:text-sm font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg hover:scale-105 transition-all"
           >
-            <Globe size={12} />
-            <span>{lang === "en" ? "العربية" : "English"}</span>
+            <span>Get Started</span>
+            <ArrowRight size={16} className="rtl:rotate-180 transition-transform group-hover:translate-x-1" />
           </button>
           <button
             className="md:hidden"
