@@ -301,11 +301,9 @@ export default function Index() {
           className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
           onClick={() => scrollToSection("hero")}
         >
-          <img
-            src={najahLogo}
-            alt="Najah Careers Logo"
-            className="w-36 h-36 object-contain"
-          />
+          <span className="font-serif text-2xl md:text-3xl tracking-tight leading-none">
+            Najah<span className="italic"> Studio</span>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
