@@ -546,7 +546,96 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Contact Form */}
+      <section id="contact" className="py-32 px-6 md:px-12 bg-background border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-50 mb-6 block">
+              {t.nav.contact}
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6 leading-tight">
+              {lang === "en" ? (
+                <>Let's <span className="italic">talk</span></>
+              ) : (
+                <>لنتحدث</>
+              )}
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              {lang === "en"
+                ? "Share a few details and we'll get back within 24 hours."
+                : "شاركنا بعض التفاصيل وسنرد خلال 24 ساعة."}
+            </p>
+          </div>
 
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const fd = new FormData(e.currentTarget);
+              const name = String(fd.get("name") || "").slice(0, 100);
+              const email = String(fd.get("email") || "").slice(0, 255);
+              const project = String(fd.get("project") || "").slice(0, 100);
+              const message = String(fd.get("message") || "").slice(0, 1000);
+              const subject = encodeURIComponent(`New project inquiry — ${name}`);
+              const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`
+              );
+              window.location.href = `mailto:hello@sadath.co?subject=${subject}&body=${body}`;
+            }}
+            className="rounded-2xl border border-border bg-card/50 backdrop-blur-sm p-8 md:p-10 space-y-6 shadow-[0_0_40px_-12px_hsl(var(--primary)/0.15)]"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.form.fullName}
+                </label>
+                <input required maxLength={100} name="name" type="text" className={inputClasses} placeholder="John Doe" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.form.email}
+                </label>
+                <input required maxLength={255} name="email" type="email" className={inputClasses} placeholder="john@company.com" />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                {lang === "en" ? "Service Interested In" : "الخدمة المطلوبة"}
+              </label>
+              <select name="project" className={`${inputClasses} appearance-none`}>
+                <option>{lang === "en" ? "Startup Website ($300–$500)" : "موقع شركة ناشئة"}</option>
+                <option>{lang === "en" ? "Full E-Commerce ($800–$2000)" : "تجارة إلكترونية كاملة"}</option>
+                <option>{lang === "en" ? "Design Overhaul / Rebrand" : "تجديد التصميم"}</option>
+                <option>{lang === "en" ? "Managed Hosting" : "استضافة مُدارة"}</option>
+                <option>{lang === "en" ? "Founder Consulting" : "استشارات للمؤسسين"}</option>
+                <option>{lang === "en" ? "Other" : "أخرى"}</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                {t.form.description}
+              </label>
+              <textarea
+                required
+                maxLength={1000}
+                name="message"
+                rows={5}
+                className={`${inputClasses} resize-none`}
+                placeholder={lang === "en" ? "Tell us about your project..." : "أخبرنا عن مشروعك..."}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full group flex items-center justify-center space-x-3 rtl:space-x-reverse text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90"
+            >
+              <span>{lang === "en" ? "Send Message" : "إرسال الرسالة"}</span>
+              <ArrowRight size={16} className="rtl:rotate-180" />
+            </button>
+          </form>
+        </div>
+      </section>
 
 
       {/* Stripe Checkout Modal */}
