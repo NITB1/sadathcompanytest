@@ -202,45 +202,60 @@ export default function Index() {
   const pricingOptions = [
     {
       tier: "Basic",
-      label: lang === "en" ? "Launch" : "إطلاق",
-      priceUsd: 60,
-      priceSar: 225,
+      label: lang === "en" ? "Startup Site" : "موقع الشركات الناشئة",
+      priceUsd: 300,
+      priceMaxUsd: 500,
+      priceSar: 1125,
+      priceMaxSar: 1875,
       features: lang === "en"
         ? [
             "Up to 5-page custom website",
             "Mobile-first responsive design",
-            "1 year managed hosting",
-            "Basic SEO setup",
+            "Brand & design overhaul",
+            "1 year managed hosting included",
+            "Basic SEO setup & analytics",
+            "Domain configuration",
           ]
         : [
             "موقع مخصص حتى 5 صفحات",
             "تصميم متجاوب للجوال أولاً",
+            "تجديد الهوية والتصميم",
             "استضافة مُدارة لمدة عام",
-            "إعداد SEO أساسي",
+            "إعداد SEO أساسي وتحليلات",
+            "إعداد النطاق",
           ],
       badge: null,
     },
     {
       tier: "Pro",
-      label: lang === "en" ? "Scale" : "نمو",
-      priceUsd: 100,
-      priceSar: 375,
+      label: lang === "en" ? "Full E-Commerce" : "تجارة إلكترونية كاملة",
+      priceUsd: 800,
+      priceMaxUsd: 2000,
+      priceSar: 3000,
+      priceMaxSar: 7500,
       features: lang === "en"
         ? [
-            "Everything in Launch",
-            "E-commerce / Stripe integration",
-            "Custom CMS or blog",
+            "Everything in Startup Site",
+            "Full e-commerce store (Stripe / Shopify)",
+            "Custom CMS, blog & product pages",
+            "Complete design overhaul & branding",
+            "Premium managed hosting & CDN",
             "Founder consulting calls",
+            "Post-launch support & maintenance",
           ]
         : [
-            "كل ما في إطلاق",
-            "تجارة إلكترونية / تكامل Stripe",
-            "CMS أو مدونة مخصصة",
+            "كل ما في موقع الشركات الناشئة",
+            "متجر إلكتروني كامل (Stripe / Shopify)",
+            "CMS مخصص ومدونة وصفحات منتجات",
+            "تجديد شامل للتصميم والهوية",
+            "استضافة مُدارة متميزة و CDN",
             "جلسات استشارية للمؤسس",
+            "دعم وصيانة بعد الإطلاق",
           ],
       badge: lang === "en" ? "Recommended" : "موصى به",
     },
   ];
+
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
