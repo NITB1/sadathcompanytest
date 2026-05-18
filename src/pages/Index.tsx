@@ -700,15 +700,15 @@ export default function Index() {
                     {selectedPkg === 1 && (
                       <div className="space-y-2 pt-2">
                         <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                          {lang === "en" ? "Shortlist Size" : "حجم القائمة المختصرة"}
+                          {lang === "en" ? "Consulting Sessions" : "جلسات استشارية"}
                         </label>
                         <div className="flex items-center gap-3">
                           <input
-                            type="number" min="5" max="50" value={shortlistCount}
-                            onChange={(e) => setShortlistCount(Math.max(5, Math.min(50, Number(e.target.value) || 10)))}
+                            type="number" min="2" max="20" value={shortlistCount}
+                            onChange={(e) => setShortlistCount(Math.max(2, Math.min(20, Number(e.target.value) || 4)))}
                             className={`${inputClasses} w-20 text-center`}
                           />
-                          <span className="text-xs text-muted-foreground">{lang === "en" ? "candidates" : "مرشحين"}</span>
+                          <span className="text-xs text-muted-foreground">{lang === "en" ? "calls" : "مكالمات"}</span>
                         </div>
                       </div>
                     )}
