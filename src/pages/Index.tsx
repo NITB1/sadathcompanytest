@@ -672,7 +672,7 @@ export default function Index() {
                   {/* Plan Selection */}
                   <div className="bg-secondary/30 p-6 rounded-2xl border border-border space-y-4">
                     <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {lang === "en" ? "Hiring Plan" : "خطة التوظيف"}
+                      {lang === "en" ? "Studio Package" : "باقة الاستوديو"}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {pricingOptions.map((opt, i) => (
