@@ -202,41 +202,41 @@ export default function Index() {
   const pricingOptions = [
     {
       tier: "Basic",
-      label: lang === "en" ? "Hiring Basic" : "التوظيف الأساسي",
+      label: lang === "en" ? "Launch" : "إطلاق",
       priceUsd: 60,
       priceSar: 225,
       features: lang === "en"
         ? [
-            "LinkedIn job posting",
-            "Job advertisement & promotion",
-            "CV collection & organization",
-            "10 shortlisted candidates",
+            "Up to 5-page custom website",
+            "Mobile-first responsive design",
+            "1 year managed hosting",
+            "Basic SEO setup",
           ]
         : [
-            "نشر الوظيفة على لينكدإن",
-            "إعلان وترويج الوظيفة",
-            "جمع وتنظيم السير الذاتية",
-            "10 مرشحين مختصرين",
+            "موقع مخصص حتى 5 صفحات",
+            "تصميم متجاوب للجوال أولاً",
+            "استضافة مُدارة لمدة عام",
+            "إعداد SEO أساسي",
           ],
       badge: null,
     },
     {
       tier: "Pro",
-      label: lang === "en" ? "Hiring Pro" : "التوظيف الاحترافي",
+      label: lang === "en" ? "Scale" : "نمو",
       priceUsd: 100,
       priceSar: 375,
       features: lang === "en"
         ? [
-            "Everything in Basic",
-            "First-round interview notes",
-            "Custom shortlist size",
-            "Priority support",
+            "Everything in Launch",
+            "E-commerce / Stripe integration",
+            "Custom CMS or blog",
+            "Founder consulting calls",
           ]
         : [
-            "كل ما في الأساسي",
-            "ملاحظات المقابلة الأولى",
-            "حجم قائمة مختصرة مخصص",
-            "دعم ذو أولوية",
+            "كل ما في إطلاق",
+            "تجارة إلكترونية / تكامل Stripe",
+            "CMS أو مدونة مخصصة",
+            "جلسات استشارية للمؤسس",
           ],
       badge: lang === "en" ? "Recommended" : "موصى به",
     },
