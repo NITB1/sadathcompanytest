@@ -321,22 +321,16 @@ export default function Index() {
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
           <button
-            onClick={() => scrollToSection("pricing")}
-            className="hover:opacity-60 transition-opacity"
-          >
-            {t.nav.pricing}
-          </button>
-          <button
-            onClick={() => scrollToSection("work-with-us")}
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
-          >
-            {t.nav.contact}
-          </button>
-          <button
             onClick={() => scrollToSection("process")}
             className="hover:opacity-60 transition-opacity"
           >
             {t.nav.howItWorks}
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
+          >
+            {t.nav.contact}
           </button>
         </div>
 
