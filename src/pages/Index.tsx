@@ -28,7 +28,7 @@ const translations = {
     nav: {
       howItWorks: "Process",
       pricing: "Services",
-      contact: "Start a Project",
+      contact: "Get Started",
       apply: "Get a Quote",
     },
     hero: {
@@ -36,7 +36,7 @@ const translations = {
       title: "We design websites, you launch ideas",
       description:
         "Sadath Company is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
-      cta: "Start a Project",
+      cta: "Get Started",
     },
     services: {
       title: "Our Process",
