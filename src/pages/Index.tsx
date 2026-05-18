@@ -818,15 +818,15 @@ export default function Index() {
                   </div>
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50 flex items-center gap-1.5">
-                      <Linkedin size={12} />
-                      LinkedIn Budget
+                      <Server size={12} />
+                      Hosting Budget
                     </span>
                     <span className="font-bold">${linkedinBudget}</span>
                   </div>
                   {selectedPkg === 1 && (
                     <div className="flex justify-between text-sm border-b border-border pb-4">
                       <span className="opacity-50">
-                        {lang === "en" ? "Shortlisted Candidates" : "المرشحين المختصرين"}
+                        {lang === "en" ? "Consulting Sessions" : "جلسات استشارية"}
                       </span>
                       <span className="font-bold">{shortlistCount}</span>
                     </div>
