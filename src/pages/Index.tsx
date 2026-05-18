@@ -464,7 +464,7 @@ export default function Index() {
                 </h3>
                 <div className="mb-2">
                   <span className="text-5xl font-bold">
-                    ${opt.priceUsd}
+                    ${opt.priceUsd}–${opt.priceMaxUsd}
                   </span>
                   <span
                     className={`text-xs uppercase tracking-widest block mt-1 ${
@@ -483,7 +483,7 @@ export default function Index() {
                       : "text-muted-foreground"
                   }`}
                 >
-                  ≈ {opt.priceSar} SAR
+                  ≈ {opt.priceSar}–{opt.priceMaxSar} SAR
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
