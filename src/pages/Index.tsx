@@ -143,7 +143,7 @@ const translations = {
       select: "اختر الباقة",
     },
     form: {
-      title: "ابدأ مشروعك",
+      title: "ابدأ الآن",
       subtitle: "أخبرنا عن فكرتك — سنرد خلال 24 ساعة.",
       contactInfo: "معلومات الاتصال",
       fullName: "الاسم الكامل",
