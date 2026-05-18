@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Inter"', "sans-serif"],
-        serif: ['"Cormorant Garamond"', "serif"],
+        sans: ['"Work Sans"', "sans-serif"],
+        serif: ['"Instrument Serif"', "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
