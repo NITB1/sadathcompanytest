@@ -413,7 +413,7 @@ export default function Index() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <button
-              onClick={() => scrollToSection("work-with-us")}
+              onClick={() => scrollToSection("contact")}
               className="group flex items-center space-x-3 rtl:space-x-reverse text-[12px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-10 py-5 rounded-full transition-all hover:scale-105"
             >
               <span>{t.hero.cta}</span>
@@ -503,7 +503,7 @@ export default function Index() {
                   <button
                     onClick={() => {
                       setSelectedPkg(i);
-                      scrollToSection("work-with-us");
+                      scrollToSection("contact");
                     }}
                     className={`w-full py-4 rounded-xl text-[10px] font-bold tracking-widest uppercase transition-all ${
                       selectedPkg === i
