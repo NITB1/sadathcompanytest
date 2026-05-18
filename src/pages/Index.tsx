@@ -747,8 +747,8 @@ export default function Index() {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground flex items-center gap-1">
-                        <Linkedin size={10} className="text-[#0A66C2]" />
-                        LinkedIn
+                        <Server size={10} />
+                        {lang === "en" ? "Hosting" : "استضافة"}
                       </span>
                       <span className="font-bold">${linkedinBudget}</span>
                     </div>
