@@ -714,11 +714,11 @@ export default function Index() {
                     )}
                   </div>
 
-                  {/* LinkedIn Budget */}
+                  {/* Hosting Budget */}
                   <div className="bg-secondary/30 p-6 rounded-2xl border border-border space-y-4">
                     <label className="text-[10px] uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                      <Linkedin size={12} className="text-[#0A66C2]" />
-                      {lang === "en" ? "LinkedIn Ad Budget" : "ميزانية إعلان لينكدإن"}
+                      <Server size={12} />
+                      {lang === "en" ? "Hosting Budget (yr)" : "ميزانية الاستضافة (سنويًا)"}
                     </label>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold">${linkedinBudget}</span>
@@ -731,7 +731,7 @@ export default function Index() {
                     />
                     <div className="flex justify-between text-[9px] text-muted-foreground uppercase tracking-widest">
                       <span>$50</span>
-                      <span className="text-emerald-500 font-bold">{lang === "en" ? "Rec: $100–$200" : "موصى: $100–$200"}</span>
+                      <span className="font-bold">{lang === "en" ? "Rec: $100–$200" : "موصى: $100–$200"}</span>
                       <span>$500</span>
                     </div>
                   </div>
