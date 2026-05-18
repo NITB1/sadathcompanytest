@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Globe,
   CheckCircle2,
-  Linkedin,
   CreditCard,
   X,
   ChevronDown,
