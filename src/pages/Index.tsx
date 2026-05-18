@@ -649,7 +649,7 @@ export default function Index() {
                 <div className="w-full space-y-4 mb-8">
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50">{selectedPrice.label}</span>
-                    <span className="font-bold">${selectedPrice.priceUsd}</span>
+                    <span className="font-bold">£{selectedPrice.priceUsd}</span>
                   </div>
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50 flex items-center gap-1.5">
