@@ -889,11 +889,11 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { icon: <FileText size={20} />, ...t.services.step1 },
-              { icon: <Linkedin size={20} />, ...t.services.step2 },
-              { icon: <Users size={20} />, ...t.services.step3 },
-              { icon: <Search size={20} />, ...t.services.step4 },
-              { icon: <Send size={20} />, ...t.services.step5 },
+              { icon: <Compass size={20} />, ...t.services.step1 },
+              { icon: <PenTool size={20} />, ...t.services.step2 },
+              { icon: <Sparkles size={20} />, ...t.services.step3 },
+              { icon: <Code2 size={20} />, ...t.services.step4 },
+              { icon: <Rocket size={20} />, ...t.services.step5 },
             ].map((step, i) => (
               <motion.div
                 key={i}
