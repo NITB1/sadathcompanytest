@@ -360,14 +360,11 @@ export default function Index() {
             exit={{ opacity: 0, x: isRtl ? -100 : 100 }}
             className="fixed inset-0 z-[60] bg-background flex flex-col items-center justify-center space-y-8 text-2xl font-serif"
           >
-            <button onClick={() => scrollToSection("pricing")}>
-              {t.nav.pricing}
-            </button>
-            <button onClick={() => scrollToSection("work-with-us")}>
-              {t.nav.contact}
-            </button>
             <button onClick={() => scrollToSection("process")}>
               {t.nav.howItWorks}
+            </button>
+            <button onClick={() => scrollToSection("contact")}>
+              {t.nav.contact}
             </button>
             <button
               className="text-sm uppercase tracking-widest opacity-50"
