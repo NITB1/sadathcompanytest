@@ -319,28 +319,13 @@ export default function Index() {
           <img src={sadathLogo} alt="Sadath Company" className="h-32 md:h-48 w-auto object-contain" />
         </div>
 
-        <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
-          <button
-            onClick={() => scrollToSection("process")}
-            className="hover:opacity-60 transition-opacity"
-          >
-            {t.nav.howItWorks}
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
-          >
-            {t.nav.contact}
-          </button>
-        </div>
-
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
           <button
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="flex items-center space-x-2 rtl:space-x-reverse text-[10px] font-bold tracking-widest uppercase bg-secondary/60 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-accent transition-all"
+            onClick={() => scrollToSection("contact")}
+            className="group hidden sm:flex items-center space-x-2 rtl:space-x-reverse text-xs md:text-sm font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg hover:scale-105 transition-all"
           >
-            <Globe size={12} />
-            <span>{lang === "en" ? "العربية" : "English"}</span>
+            <span>Get Started</span>
+            <ArrowRight size={16} className="rtl:rotate-180 transition-transform group-hover:translate-x-1" />
           </button>
           <button
             className="md:hidden"
@@ -360,9 +345,6 @@ export default function Index() {
             exit={{ opacity: 0, x: isRtl ? -100 : 100 }}
             className="fixed inset-0 z-[60] bg-background flex flex-col items-center justify-center space-y-8 text-2xl font-serif"
           >
-            <button onClick={() => scrollToSection("process")}>
-              {t.nav.howItWorks}
-            </button>
             <button onClick={() => scrollToSection("contact")}>
               {t.nav.contact}
             </button>
@@ -464,7 +446,7 @@ export default function Index() {
                 </h3>
                 <div className="mb-2">
                   <span className="text-5xl font-bold">
-                    ${opt.priceUsd}–${opt.priceMaxUsd}
+                    £{opt.priceUsd}–£{opt.priceMaxUsd}
                   </span>
                   <span
                     className={`text-xs uppercase tracking-widest block mt-1 ${
@@ -475,15 +457,6 @@ export default function Index() {
                   >
                     {t.pricing.perPackage}
                   </span>
-                </div>
-                <div
-                  className={`text-lg font-serif mb-6 ${
-                    selectedPkg === i
-                      ? "opacity-80"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  ≈ {opt.priceSar}–{opt.priceMaxSar} SAR
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
@@ -529,17 +502,17 @@ export default function Index() {
               </div>
               <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-6">
                 {lang === "en"
-                  ? "Premium managed hosting with global CDN, daily backups, SSL, and uptime monitoring. We recommend a budget between $50–$200/year depending on traffic. Added on top of your package."
+                  ? "Premium managed hosting with global CDN, daily backups, SSL, and uptime monitoring. We recommend a budget between £50–£200/year depending on traffic. Added on top of your package."
                   : "استضافة مُدارة متميزة مع CDN عالمي ونسخ احتياطية يومية و SSL ومراقبة وقت التشغيل. نوصي بميزانية بين 50–200 دولار/سنة حسب حركة المرور. تُضاف فوق باقتك."}
               </p>
               <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                <span>$50</span>
+                <span>£50</span>
                 <div className="h-px w-16 bg-border" />
                 <span className="font-bold text-foreground">
                   {lang === "en" ? "Set your amount in the form below" : "حدد المبلغ في النموذج أدناه"}
                 </span>
                 <div className="h-px w-16 bg-border" />
-                <span>$200+</span>
+                <span>£200+</span>
               </div>
             </div>
           </div>
@@ -603,8 +576,8 @@ export default function Index() {
                 {lang === "en" ? "Service Interested In" : "الخدمة المطلوبة"}
               </label>
               <select name="project" className={`${inputClasses} appearance-none`}>
-                <option>{lang === "en" ? "Startup Website ($300–$500)" : "موقع شركة ناشئة"}</option>
-                <option>{lang === "en" ? "Full E-Commerce ($800–$2000)" : "تجارة إلكترونية كاملة"}</option>
+                <option>{lang === "en" ? "Startup Website (£300–£500)" : "موقع شركة ناشئة"}</option>
+                <option>{lang === "en" ? "Full E-Commerce (£800–£2000)" : "تجارة إلكترونية كاملة"}</option>
                 <option>{lang === "en" ? "Design Overhaul / Rebrand" : "تجديد التصميم"}</option>
                 <option>{lang === "en" ? "Managed Hosting" : "استضافة مُدارة"}</option>
                 <option>{lang === "en" ? "Founder Consulting" : "استشارات للمؤسسين"}</option>
@@ -676,14 +649,14 @@ export default function Index() {
                 <div className="w-full space-y-4 mb-8">
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50">{selectedPrice.label}</span>
-                    <span className="font-bold">${selectedPrice.priceUsd}</span>
+                    <span className="font-bold">£{selectedPrice.priceUsd}</span>
                   </div>
                   <div className="flex justify-between text-sm border-b border-border pb-4">
                     <span className="opacity-50 flex items-center gap-1.5">
                       <Server size={12} />
                       Hosting Budget
                     </span>
-                    <span className="font-bold">${linkedinBudget}</span>
+                    <span className="font-bold">£{linkedinBudget}</span>
                   </div>
                   {selectedPkg === 1 && (
                     <div className="flex justify-between text-sm border-b border-border pb-4">
@@ -696,8 +669,7 @@ export default function Index() {
                   <div className="flex justify-between text-xl">
                     <span className="opacity-50">{t.pricing.total}</span>
                     <div className="text-right">
-                      <span className="font-bold">${totalPrice}</span>
-                      <span className="block text-sm opacity-50">≈ {totalSar} SAR</span>
+                      <span className="font-bold">£{totalPrice}</span>
                     </div>
                   </div>
                 </div>
