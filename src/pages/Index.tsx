@@ -301,7 +301,7 @@ export default function Index() {
           className="flex items-center cursor-pointer"
           onClick={() => scrollToSection("hero")}
         >
-          <img src={sadathLogo} alt="Sadath Company" className="h-20 md:h-28 w-auto object-contain" />
+          <img src={sadathLogo} alt="Sadath Company" className="h-32 md:h-48 w-auto object-contain" />
         </div>
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
