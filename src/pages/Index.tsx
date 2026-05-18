@@ -446,7 +446,7 @@ export default function Index() {
                 </h3>
                 <div className="mb-2">
                   <span className="text-5xl font-bold">
-                    ${opt.priceUsd}–${opt.priceMaxUsd}
+                    £{opt.priceUsd}–£{opt.priceMaxUsd}
                   </span>
                   <span
                     className={`text-xs uppercase tracking-widest block mt-1 ${
@@ -457,15 +457,6 @@ export default function Index() {
                   >
                     {t.pricing.perPackage}
                   </span>
-                </div>
-                <div
-                  className={`text-lg font-serif mb-6 ${
-                    selectedPkg === i
-                      ? "opacity-80"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  ≈ {opt.priceSar}–{opt.priceMaxSar} SAR
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
