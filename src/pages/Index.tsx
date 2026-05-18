@@ -179,7 +179,7 @@ export default function Index() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState<number>(0);
   const [linkedinBudget, setLinkedinBudget] = useState<number>(100);
-  const [shortlistCount, setShortlistCount] = useState<number>(10);
+  const [shortlistCount, setShortlistCount] = useState<number>(4);
   const [isProcessing, setIsProcessing] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
