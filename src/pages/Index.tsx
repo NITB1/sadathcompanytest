@@ -926,17 +926,12 @@ export default function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img
-                src={najahLogo}
-                alt="Najah Logo"
-                className="w-28 h-28 object-contain opacity-40"
-              />
-              <h2 className="font-serif text-lg tracking-[0.1em] uppercase opacity-40">
-                Najah Careers
+              <h2 className="font-serif text-2xl tracking-tight opacity-60">
+                Najah<span className="italic"> Studio</span>
               </h2>
             </div>
-            <p className="text-[10px] tracking-[0.2em] uppercase opacity-30">
-              © 2026 Najah Recruitment — Riyadh, Saudi Arabia
+            <p className="text-[10px] tracking-[0.2em] uppercase opacity-40">
+              © 2026 Najah Studio — Riyadh, Saudi Arabia
             </p>
           </div>
 
