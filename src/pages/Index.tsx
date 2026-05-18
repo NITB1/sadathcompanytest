@@ -1,22 +1,21 @@
 import { motion, AnimatePresence } from "motion/react";
-import najahLogo from "@/assets/najah-logo.png";
 import {
   Menu,
   ArrowRight,
   Globe,
   CheckCircle2,
-  Filter,
-  Target,
   Linkedin,
-  Briefcase,
   CreditCard,
   X,
   ChevronDown,
   Loader2,
-  Users,
-  FileText,
-  Search,
-  Send,
+  Sparkles,
+  PenTool,
+  Code2,
+  Rocket,
+  ShoppingBag,
+  Server,
+  Compass,
 } from "lucide-react";
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
