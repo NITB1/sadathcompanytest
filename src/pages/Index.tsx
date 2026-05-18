@@ -612,9 +612,9 @@ export default function Index() {
                       {t.form.experience}
                     </label>
                     <select name="experienceLevel" className={`${inputClasses} appearance-none`}>
-                      <option>Entry Level</option>
-                      <option>Mid-Senior</option>
-                      <option>Director / Executive</option>
+                      <option>$2K – $5K</option>
+                      <option>$5K – $15K</option>
+                      <option>$15K+</option>
                     </select>
                   </div>
                 </div>
