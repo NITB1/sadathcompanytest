@@ -43,7 +43,7 @@ export default function PaymentSuccess() {
             </div>
             <h1 className="font-serif text-4xl mb-4">Payment Successful</h1>
             <p className="text-muted-foreground text-lg mb-8">
-              Thank you! Your recruitment campaign is being launched. We'll be in touch within 24 hours.
+              Thank you! Your project slot is reserved. We'll be in touch within 24 hours to kick off discovery.
             </p>
             <Link
               to="/"
