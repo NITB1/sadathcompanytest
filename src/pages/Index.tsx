@@ -28,7 +28,7 @@ const translations = {
     nav: {
       howItWorks: "Process",
       pricing: "Services",
-      contact: "Start a Project",
+      contact: "Get Started",
       apply: "Get a Quote",
     },
     hero: {
@@ -36,7 +36,7 @@ const translations = {
       title: "We design websites, you launch ideas",
       description:
         "Sadath Company is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
-      cta: "Start a Project",
+      cta: "Get Started",
     },
     services: {
       title: "Our Process",
@@ -71,7 +71,7 @@ const translations = {
       select: "Choose Package",
     },
     form: {
-      title: "Start a Project",
+      title: "Get Started",
       subtitle: "Tell us about your idea — we'll get back within 24 hours.",
       contactInfo: "Contact Information",
       fullName: "Full Name",
@@ -101,7 +101,7 @@ const translations = {
     nav: {
       howItWorks: "العملية",
       pricing: "الخدمات",
-      contact: "ابدأ مشروعك",
+      contact: "ابدأ الآن",
       apply: "اطلب عرض سعر",
     },
     hero: {
@@ -109,7 +109,7 @@ const translations = {
       title: "نحن نصمم المواقع، وأنت تُطلق الأفكار",
       description:
         "نجاح ستوديو وكالة تصميم مواقع للشركات الناشئة. نصمم مواقع جميلة، ونوفر الاستضافة، ونبني تجارب تجارة إلكترونية، ونستشير المؤسسين من الفكرة إلى الإطلاق.",
-      cta: "ابدأ مشروعك",
+      cta: "ابدأ الآن",
     },
     services: {
       title: "عمليتنا",
@@ -143,7 +143,7 @@ const translations = {
       select: "اختر الباقة",
     },
     form: {
-      title: "ابدأ مشروعك",
+      title: "ابدأ الآن",
       subtitle: "أخبرنا عن فكرتك — سنرد خلال 24 ساعة.",
       contactInfo: "معلومات الاتصال",
       fullName: "الاسم الكامل",
@@ -202,45 +202,60 @@ export default function Index() {
   const pricingOptions = [
     {
       tier: "Basic",
-      label: lang === "en" ? "Launch" : "إطلاق",
-      priceUsd: 60,
-      priceSar: 225,
+      label: lang === "en" ? "Startup Site" : "موقع الشركات الناشئة",
+      priceUsd: 300,
+      priceMaxUsd: 500,
+      priceSar: 1125,
+      priceMaxSar: 1875,
       features: lang === "en"
         ? [
             "Up to 5-page custom website",
             "Mobile-first responsive design",
-            "1 year managed hosting",
-            "Basic SEO setup",
+            "Brand & design overhaul",
+            "1 year managed hosting included",
+            "Basic SEO setup & analytics",
+            "Domain configuration",
           ]
         : [
             "موقع مخصص حتى 5 صفحات",
             "تصميم متجاوب للجوال أولاً",
+            "تجديد الهوية والتصميم",
             "استضافة مُدارة لمدة عام",
-            "إعداد SEO أساسي",
+            "إعداد SEO أساسي وتحليلات",
+            "إعداد النطاق",
           ],
       badge: null,
     },
     {
       tier: "Pro",
-      label: lang === "en" ? "Scale" : "نمو",
-      priceUsd: 100,
-      priceSar: 375,
+      label: lang === "en" ? "Full E-Commerce" : "تجارة إلكترونية كاملة",
+      priceUsd: 800,
+      priceMaxUsd: 2000,
+      priceSar: 3000,
+      priceMaxSar: 7500,
       features: lang === "en"
         ? [
-            "Everything in Launch",
-            "E-commerce / Stripe integration",
-            "Custom CMS or blog",
+            "Everything in Startup Site",
+            "Full e-commerce store (Stripe / Shopify)",
+            "Custom CMS, blog & product pages",
+            "Complete design overhaul & branding",
+            "Premium managed hosting & CDN",
             "Founder consulting calls",
+            "Post-launch support & maintenance",
           ]
         : [
-            "كل ما في إطلاق",
-            "تجارة إلكترونية / تكامل Stripe",
-            "CMS أو مدونة مخصصة",
+            "كل ما في موقع الشركات الناشئة",
+            "متجر إلكتروني كامل (Stripe / Shopify)",
+            "CMS مخصص ومدونة وصفحات منتجات",
+            "تجديد شامل للتصميم والهوية",
+            "استضافة مُدارة متميزة و CDN",
             "جلسات استشارية للمؤسس",
+            "دعم وصيانة بعد الإطلاق",
           ],
       badge: lang === "en" ? "Recommended" : "موصى به",
     },
   ];
+
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -306,22 +321,16 @@ export default function Index() {
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
           <button
-            onClick={() => scrollToSection("pricing")}
-            className="hover:opacity-60 transition-opacity"
-          >
-            {t.nav.pricing}
-          </button>
-          <button
-            onClick={() => scrollToSection("work-with-us")}
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
-          >
-            {t.nav.contact}
-          </button>
-          <button
             onClick={() => scrollToSection("process")}
             className="hover:opacity-60 transition-opacity"
           >
             {t.nav.howItWorks}
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-full hover:scale-105 transition-all"
+          >
+            {t.nav.contact}
           </button>
         </div>
 
@@ -351,14 +360,11 @@ export default function Index() {
             exit={{ opacity: 0, x: isRtl ? -100 : 100 }}
             className="fixed inset-0 z-[60] bg-background flex flex-col items-center justify-center space-y-8 text-2xl font-serif"
           >
-            <button onClick={() => scrollToSection("pricing")}>
-              {t.nav.pricing}
-            </button>
-            <button onClick={() => scrollToSection("work-with-us")}>
-              {t.nav.contact}
-            </button>
             <button onClick={() => scrollToSection("process")}>
               {t.nav.howItWorks}
+            </button>
+            <button onClick={() => scrollToSection("contact")}>
+              {t.nav.contact}
             </button>
             <button
               className="text-sm uppercase tracking-widest opacity-50"
@@ -407,7 +413,7 @@ export default function Index() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <button
-              onClick={() => scrollToSection("work-with-us")}
+              onClick={() => scrollToSection("contact")}
               className="group flex items-center space-x-3 rtl:space-x-reverse text-[12px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-10 py-5 rounded-full transition-all hover:scale-105"
             >
               <span>{t.hero.cta}</span>
@@ -458,7 +464,7 @@ export default function Index() {
                 </h3>
                 <div className="mb-2">
                   <span className="text-5xl font-bold">
-                    ${opt.priceUsd}
+                    ${opt.priceUsd}–${opt.priceMaxUsd}
                   </span>
                   <span
                     className={`text-xs uppercase tracking-widest block mt-1 ${
@@ -477,7 +483,7 @@ export default function Index() {
                       : "text-muted-foreground"
                   }`}
                 >
-                  ≈ {opt.priceSar} SAR
+                  ≈ {opt.priceSar}–{opt.priceMaxSar} SAR
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
@@ -497,7 +503,7 @@ export default function Index() {
                   <button
                     onClick={() => {
                       setSelectedPkg(i);
-                      scrollToSection("work-with-us");
+                      scrollToSection("contact");
                     }}
                     className={`w-full py-4 rounded-xl text-[10px] font-bold tracking-widest uppercase transition-all ${
                       selectedPkg === i
@@ -540,7 +546,96 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Contact Form */}
+      <section id="contact" className="py-32 px-6 md:px-12 bg-background border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-50 mb-6 block">
+              {t.nav.contact}
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6 leading-tight">
+              {lang === "en" ? (
+                <>Let's <span className="italic">talk</span></>
+              ) : (
+                <>لنتحدث</>
+              )}
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              {lang === "en"
+                ? "Share a few details and we'll get back within 24 hours."
+                : "شاركنا بعض التفاصيل وسنرد خلال 24 ساعة."}
+            </p>
+          </div>
 
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const fd = new FormData(e.currentTarget);
+              const name = String(fd.get("name") || "").slice(0, 100);
+              const email = String(fd.get("email") || "").slice(0, 255);
+              const project = String(fd.get("project") || "").slice(0, 100);
+              const message = String(fd.get("message") || "").slice(0, 1000);
+              const subject = encodeURIComponent(`New project inquiry — ${name}`);
+              const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`
+              );
+              window.location.href = `mailto:hello@sadath.co?subject=${subject}&body=${body}`;
+            }}
+            className="rounded-2xl border border-border bg-card/50 backdrop-blur-sm p-8 md:p-10 space-y-6 shadow-[0_0_40px_-12px_hsl(var(--primary)/0.15)]"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.form.fullName}
+                </label>
+                <input required maxLength={100} name="name" type="text" className={inputClasses} placeholder="John Doe" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.form.email}
+                </label>
+                <input required maxLength={255} name="email" type="email" className={inputClasses} placeholder="john@company.com" />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                {lang === "en" ? "Service Interested In" : "الخدمة المطلوبة"}
+              </label>
+              <select name="project" className={`${inputClasses} appearance-none`}>
+                <option>{lang === "en" ? "Startup Website ($300–$500)" : "موقع شركة ناشئة"}</option>
+                <option>{lang === "en" ? "Full E-Commerce ($800–$2000)" : "تجارة إلكترونية كاملة"}</option>
+                <option>{lang === "en" ? "Design Overhaul / Rebrand" : "تجديد التصميم"}</option>
+                <option>{lang === "en" ? "Managed Hosting" : "استضافة مُدارة"}</option>
+                <option>{lang === "en" ? "Founder Consulting" : "استشارات للمؤسسين"}</option>
+                <option>{lang === "en" ? "Other" : "أخرى"}</option>
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                {t.form.description}
+              </label>
+              <textarea
+                required
+                maxLength={1000}
+                name="message"
+                rows={5}
+                className={`${inputClasses} resize-none`}
+                placeholder={lang === "en" ? "Tell us about your project..." : "أخبرنا عن مشروعك..."}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full group flex items-center justify-center space-x-3 rtl:space-x-reverse text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90"
+            >
+              <span>{lang === "en" ? "Send Message" : "إرسال الرسالة"}</span>
+              <ArrowRight size={16} className="rtl:rotate-180" />
+            </button>
+          </form>
+        </div>
+      </section>
 
 
       {/* Stripe Checkout Modal */}
