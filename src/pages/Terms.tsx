@@ -13,7 +13,7 @@ export default function Terms() {
 
         <div className="prose max-w-none space-y-6 text-muted-foreground leading-relaxed">
           <h2 className="font-serif text-xl text-foreground">Service Overview</h2>
-          <p>Najah Studio provides web design, development, hosting, e-commerce, and startup consulting services. By purchasing a package, you agree to these terms.</p>
+          <p>Sadath Company provides web design, development, hosting, e-commerce, and startup consulting services. By purchasing a package, you agree to these terms.</p>
 
           <h2 className="font-serif text-xl text-foreground">Payments & Refunds</h2>
           <p>All payments are processed securely through Stripe. Deposits are non-refundable once design work has begun. If we are unable to deliver the agreed scope within the timeline, we will extend the engagement at no additional cost.</p>

@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import sadathLogo from "@/assets/sadath-logo.png";
 import { Slider } from "@/components/ui/slider";
 
 type Language = "en" | "ar";
@@ -34,7 +35,7 @@ const translations = {
       tagline: "Web Design Studio · For Founders",
       title: "We design websites, you launch ideas",
       description:
-        "Najah Studio is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
+        "Sadath Company is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
       cta: "Start a Project",
     },
     services: {
@@ -297,12 +298,10 @@ export default function Index() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
         <div
-          className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
+          className="flex items-center cursor-pointer"
           onClick={() => scrollToSection("hero")}
         >
-          <span className="font-serif text-2xl md:text-3xl tracking-tight leading-none">
-            Najah<span className="italic"> Studio</span>
-          </span>
+          <img src={sadathLogo} alt="Sadath Company" className="h-20 md:h-28 w-auto object-contain" />
         </div>
 
         <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-[0.2em] uppercase">
@@ -924,13 +923,9 @@ export default function Index() {
       <footer className="py-20 px-6 border-t border-border">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col items-center md:items-start space-y-4">
-            <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <h2 className="font-serif text-2xl tracking-tight opacity-60">
-                Najah<span className="italic"> Studio</span>
-              </h2>
-            </div>
+            <img src={sadathLogo} alt="Sadath Company" className="h-16 w-auto object-contain opacity-80" />
             <p className="text-[10px] tracking-[0.2em] uppercase opacity-40">
-              © 2026 Najah Studio — Riyadh, Saudi Arabia
+              © 2026 Sadath Company — Riyadh, Saudi Arabia
             </p>
           </div>
 
