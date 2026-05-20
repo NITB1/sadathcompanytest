@@ -65,7 +65,7 @@ const translations = {
     },
     pricing: {
       title: "Studio Packages",
-      subtitle: "Two ways to work with us. Add a managed hosting plan to keep things running smoothly.",
+      subtitle: "Two ways to work with us, from lean startup launches to full e-commerce builds.",
       perPackage: "starting at",
       total: "Total",
       select: "Choose Package",
@@ -491,31 +491,6 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Hosting Add-on Info */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-secondary/50 border border-border rounded-3xl p-8 md:p-10 text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Server size={22} />
-                <h3 className="font-serif text-2xl">
-                  {lang === "en" ? "Managed Hosting Add-on" : "إضافة استضافة مُدارة"}
-                </h3>
-              </div>
-              <p className="text-muted-foreground text-sm max-w-xl mx-auto mb-6">
-                {lang === "en"
-                  ? "Premium managed hosting with global CDN, daily backups, SSL, and uptime monitoring. We recommend a budget between £50–£200/year depending on traffic. Added on top of your package."
-                  : "استضافة مُدارة متميزة مع CDN عالمي ونسخ احتياطية يومية و SSL ومراقبة وقت التشغيل. نوصي بميزانية بين 50–200 دولار/سنة حسب حركة المرور. تُضاف فوق باقتك."}
-              </p>
-              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                <span>£50</span>
-                <div className="h-px w-16 bg-border" />
-                <span className="font-bold text-foreground">
-                  {lang === "en" ? "Set your amount in the form below" : "حدد المبلغ في النموذج أدناه"}
-                </span>
-                <div className="h-px w-16 bg-border" />
-                <span>£200+</span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -579,7 +554,7 @@ export default function Index() {
                 <option>{lang === "en" ? "Startup Website (£300–£500)" : "موقع شركة ناشئة"}</option>
                 <option>{lang === "en" ? "Full E-Commerce (£800–£2000)" : "تجارة إلكترونية كاملة"}</option>
                 <option>{lang === "en" ? "Design Overhaul / Rebrand" : "تجديد التصميم"}</option>
-                <option>{lang === "en" ? "Managed Hosting" : "استضافة مُدارة"}</option>
+                
                 <option>{lang === "en" ? "Founder Consulting" : "استشارات للمؤسسين"}</option>
                 <option>{lang === "en" ? "Other" : "أخرى"}</option>
               </select>
