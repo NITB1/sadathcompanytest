@@ -97,7 +97,7 @@ const pricingOptions = [
 ];
 
 const serviceOptions = [
-  "Startup Website (£300–£500)",
+  "Startup Website (£400–£800)",
   "E-Commerce / Custom Site (£800–£2000)",
   "Design Overhaul / Rebrand",
   "Founder Consulting",
