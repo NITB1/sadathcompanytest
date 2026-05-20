@@ -67,8 +67,8 @@ const t = {
 const pricingOptions = [
   {
     label: "Startup Site",
-    priceMin: 300,
-    priceMax: 500,
+    priceMin: 400,
+    priceMax: 800,
     features: [
       "Up to 5-page custom website",
       "Mobile-first responsive design",
@@ -97,7 +97,7 @@ const pricingOptions = [
 ];
 
 const serviceOptions = [
-  "Startup Website (£300–£500)",
+  "Startup Website (£400–£800)",
   "E-Commerce / Custom Site (£800–£2000)",
   "Design Overhaul / Rebrand",
   "Founder Consulting",
