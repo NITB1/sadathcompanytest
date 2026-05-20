@@ -67,8 +67,8 @@ const t = {
 const pricingOptions = [
   {
     label: "Startup Site",
-    priceMin: 300,
-    priceMax: 500,
+    priceMin: 400,
+    priceMax: 800,
     features: [
       "Up to 5-page custom website",
       "Mobile-first responsive design",
