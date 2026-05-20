@@ -65,7 +65,7 @@ const translations = {
     },
     pricing: {
       title: "Studio Packages",
-      subtitle: "Two ways to work with us. Add a managed hosting plan to keep things running smoothly.",
+      subtitle: "Two ways to work with us, from lean startup launches to full e-commerce builds.",
       perPackage: "starting at",
       total: "Total",
       select: "Choose Package",
