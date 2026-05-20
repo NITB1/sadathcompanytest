@@ -731,11 +731,16 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-20 px-6 border-t border-border">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex flex-col items-center md:items-start space-y-4">
+          <div className="flex flex-col items-center md:items-start space-y-4 max-w-md">
             <img src={sadathLogo} alt="Sadath Company" className="h-16 w-auto object-contain opacity-80" />
-            <p className="text-[10px] tracking-[0.2em] uppercase opacity-40">
-              © 2026 Sadath Company — Riyadh, Saudi Arabia
-            </p>
+            <div className="text-[11px] leading-relaxed opacity-50 text-center md:text-left space-y-1">
+              <p className="tracking-[0.15em] uppercase">© 2026 The Sadath Company Ltd. All rights reserved.</p>
+              <p>Registered in England and Wales. Company No. 16707212</p>
+              <p>Registered office: 27 Orchard Estate, Cambridge, CB1 3JW</p>
+              <a href="mailto:contact@sadathcompany.com" className="inline-block hover:opacity-100 transition-opacity underline-offset-2 hover:underline">
+                contact@sadathcompany.com
+              </a>
+            </div>
           </div>
 
           <div className="flex space-x-8 rtl:space-x-reverse text-[10px] font-bold tracking-widest uppercase opacity-40">
