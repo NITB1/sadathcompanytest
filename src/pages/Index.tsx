@@ -750,7 +750,7 @@ export default function Index() {
             <a href="/terms" className="hover:opacity-100 transition-opacity">
               Terms
             </a>
-            <a href="https://www.linkedin.com/company/najahcareers" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
+            <a href="https://www.linkedin.com/company/sadathcompany/" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
               LinkedIn
             </a>
           </div>
