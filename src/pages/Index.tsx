@@ -143,8 +143,17 @@ export default function Index() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
         <div
+          role="button"
+          tabIndex={0}
+          aria-label="Scroll to top"
           className="flex items-center cursor-pointer"
           onClick={() => scrollToSection("hero")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              scrollToSection("hero");
+            }
+          }}
         >
           <img
             src={sadathLogo}
@@ -164,7 +173,12 @@ export default function Index() {
               className="transition-transform group-hover:translate-x-1"
             />
           </button>
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Menu size={20} />
           </button>
         </div>
