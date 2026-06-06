@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import sadathLogo from "@/assets/sadath-logo.png";
+import { Seo } from "@/components/Seo";
 
 const t = {
   nav: {
