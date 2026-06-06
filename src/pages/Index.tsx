@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import sadathLogo from "@/assets/sadath-logo.png";
+import { Seo } from "@/components/Seo";
 
 const t = {
   nav: {
@@ -140,11 +141,25 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
+      <Seo
+        title="Sadath Company — Web Design Agency for Startups"
+        description="We design, build, and launch beautiful websites for startups. Web design, hosting, and e-commerce — plus strategic consulting to bring your idea to life."
+        path="/"
+      />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
         <div
+          role="button"
+          tabIndex={0}
+          aria-label="Scroll to top"
           className="flex items-center cursor-pointer"
           onClick={() => scrollToSection("hero")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              scrollToSection("hero");
+            }
+          }}
         >
           <img
             src={sadathLogo}
@@ -164,7 +179,12 @@ export default function Index() {
               className="transition-transform group-hover:translate-x-1"
             />
           </button>
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <Menu size={20} />
           </button>
         </div>
