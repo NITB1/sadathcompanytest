@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-background text-foreground px-6 py-20">
+      <Seo
+        title="Terms of Service — Sadath Company"
+        description="Terms governing use of the Sadath Company website and preliminary engagement with our web design studio."
+        path="/terms"
+      />
       <div className="max-w-3xl mx-auto">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-12 text-sm">
           <ArrowLeft size={16} /> Back to Home

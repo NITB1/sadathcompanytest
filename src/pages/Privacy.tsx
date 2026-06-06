@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-background text-foreground px-6 py-20">
+      <Seo
+        title="Privacy Policy — Sadath Company"
+        description="How Sadath Company collects, uses, and protects personal data under UK GDPR and the Data Protection Act 2018."
+        path="/privacy"
+      />
       <div className="max-w-3xl mx-auto">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-12 text-sm">
           <ArrowLeft size={16} /> Back to Home
