@@ -2,6 +2,7 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { Seo } from "@/components/Seo";
 
 export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
@@ -27,6 +28,11 @@ export default function PaymentSuccess() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-6">
+      <Seo
+        title="Payment Successful — Sadath Company"
+        description="Your payment was received. We'll be in touch within 24 hours to kick off discovery for your project."
+        path="/payment-success"
+      />
       <div className="text-center max-w-md">
         {verifying ? (
           <>
