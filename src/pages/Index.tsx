@@ -378,7 +378,7 @@ export default function Index() {
                   <h3 className="font-serif text-2xl mb-4 mt-2">{opt.label}</h3>
                   <div className="mb-2">
                     <span className="text-5xl font-bold">
-                      £{opt.priceMin}–£{opt.priceMax}
+                      £{opt.priceMin.toLocaleString()}–£{opt.priceMax.toLocaleString()}
                     </span>
                     <span
                       className={`text-xs uppercase tracking-widest block mt-1 ${
