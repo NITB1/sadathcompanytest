@@ -8,6 +8,12 @@ import {
   Code2,
   Rocket,
   Compass,
+  LayoutDashboard,
+  CalendarClock,
+  Workflow,
+  Globe,
+  ShoppingBag,
+  Palette,
 } from "lucide-react";
 import { useState } from "react";
 import sadathLogo from "@/assets/sadath-logo.png";
@@ -19,42 +25,42 @@ const t = {
     contact: "Get Started",
   },
   hero: {
-    tagline: "Web Design Studio · For Founders",
-    title: "We design websites, you launch ideas",
+    tagline: "Custom Software & Web Design · For Growing Businesses",
+    title: "We build software, you run the business",
     description:
-      "Sadath Company is a boutique web design agency for startups. We craft beautiful websites, handle hosting, build e-commerce experiences, and consult founders from zero to launch.",
+      "Sadath Company is a UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation — and the marketing sites and stores around them.",
     cta: "Get Started",
   },
   services: {
     title: "Our Process",
-    subtitle: "A focused, transparent sprint from blank page to shipped product.",
+    subtitle: "A focused, transparent sprint from messy process to shipped product.",
     steps: [
       {
         title: "Discovery Call",
-        desc: "We sit with founders to understand the product, the audience, and the story you want to tell.",
+        desc: "We sit with you to understand the business, the users, and the process you're trying to streamline.",
       },
       {
         title: "Strategy & Wireframes",
-        desc: "We map the site structure, content priorities, and conversion flows before a single pixel is drawn.",
+        desc: "We map flows, data models, and screens — for software or site — before a single pixel is drawn.",
       },
       {
-        title: "Visual Design",
-        desc: "Custom, editorial design tailored to your brand — never templates. Reviewed in 2 rounds.",
+        title: "Design",
+        desc: "Custom interface and brand design tailored to your team and customers. Reviewed in 2 rounds.",
       },
       {
-        title: "Build & E-Commerce",
-        desc: "Hand-crafted code, fast performance, accessible by default. Stripe, Shopify, or headless CMS as needed.",
+        title: "Build",
+        desc: "Modern, hand-crafted code. Auth, integrations, performance, accessibility — built in from day one.",
       },
       {
-        title: "Launch & Host",
-        desc: "We deploy on managed hosting, configure your domain, and stay on call after launch.",
+        title: "Launch & Support",
+        desc: "We deploy, train your team, and stay on call after launch with hosting and ongoing maintenance.",
       },
     ],
   },
   pricing: {
     title: "Studio Packages",
     subtitle:
-      "Two ways to work with us, from lean startup launches to full e-commerce builds.",
+      "Indicative pricing for websites and custom software. Final scope and quote follow a discovery call.",
     perPackage: "starting at",
     select: "Choose Package",
   },
@@ -67,7 +73,7 @@ const t = {
 
 const pricingOptions = [
   {
-    label: "Startup Site",
+    label: "Startup Website",
     priceMin: 400,
     priceMax: 800,
     features: [
@@ -81,27 +87,28 @@ const pricingOptions = [
     badge: null,
   },
   {
-    label: "E-Commerce / Custom Site",
-    priceMin: 800,
-    priceMax: 2000,
+    label: "Custom Software",
+    priceMin: 2000,
+    priceMax: 8000,
     features: [
-      "Everything in Startup Site",
-      "Full e-commerce store (Stripe / Shopify)",
-      "Custom site, CMS, blog & product pages",
-      "Complete design overhaul & branding",
-      "Premium managed hosting & CDN",
-      "Founder consulting calls",
-      "Post-launch support & maintenance",
+      "Discovery & process mapping",
+      "Custom dashboard, tool, or automation",
+      "User authentication & roles",
+      "Integrations (Stripe, email, APIs)",
+      "Managed hosting & maintenance",
+      "Team training & handover",
     ],
-    badge: "Recommended",
+    badge: "Most Impact",
   },
 ];
 
 const serviceOptions = [
+  "Custom Software (Dashboard / Tool / Automation)",
+  "Booking or Scheduling System",
   "Startup Website (£400–£800)",
-  "E-Commerce / Custom Site (£800–£2000)",
+  "E-Commerce / Custom Site",
   "Design Overhaul / Rebrand",
-  "Founder Consulting",
+  "Consulting",
   "Other",
 ];
 
@@ -114,6 +121,29 @@ const processSteps = [
   { icon: <Sparkles size={20} />, ...t.services.steps[2] },
   { icon: <Code2 size={20} />, ...t.services.steps[3] },
   { icon: <Rocket size={20} />, ...t.services.steps[4] },
+];
+
+const whatWeBuild = [
+  {
+    title: "Custom Software",
+    tagline: "Replace the spreadsheet. Save hours every week.",
+    desc: "We build internal tools tailored to how your business actually works — so your team stops fighting software and starts moving faster.",
+    items: [
+      { icon: <LayoutDashboard size={18} />, label: "Internal dashboards & admin panels" },
+      { icon: <CalendarClock size={18} />, label: "Booking & scheduling systems" },
+      { icon: <Workflow size={18} />, label: "Workflow automation & integrations" },
+    ],
+  },
+  {
+    title: "Web Design",
+    tagline: "Beautiful sites that convert visitors into customers.",
+    desc: "Editorial, custom-designed websites and online stores — built fast, accessible by default, and hosted on managed infrastructure.",
+    items: [
+      { icon: <Globe size={18} />, label: "Marketing & startup websites" },
+      { icon: <ShoppingBag size={18} />, label: "E-commerce stores (Stripe / Shopify)" },
+      { icon: <Palette size={18} />, label: "Brand & design overhauls" },
+    ],
+  },
 ];
 
 export default function Index() {
@@ -142,8 +172,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
       <Seo
-        title="Sadath Company — Web Design Agency for Startups"
-        description="We design, build, and launch beautiful websites for startups. Web design, hosting, and e-commerce — plus strategic consulting to bring your idea to life."
+        title="Sadath Company — Custom Software & Web Design Studio"
+        description="UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation, marketing sites, and e-commerce."
         path="/"
       />
       {/* Navigation */}
@@ -268,8 +298,56 @@ export default function Index() {
         </motion.div>
       </section>
 
+      {/* What We Build */}
+      <section id="what-we-build" className="py-32 px-6 md:px-12 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-4 block">
+              What We Build
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6">
+              Software <span className="italic">&</span> Websites
+            </h2>
+            <p className="text-muted-foreground text-lg font-serif italic max-w-2xl mx-auto">
+              Two practices, one studio. We design the tools that run your business and the sites that grow it.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {whatWeBuild.map((block) => (
+              <motion.div
+                key={block.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-10 rounded-3xl border border-border bg-secondary/20 hover:bg-secondary/40 transition-all"
+              >
+                <h3 className="font-serif text-3xl mb-3">{block.title}</h3>
+                <p className="text-sm uppercase tracking-widest opacity-50 mb-6">
+                  {block.tagline}
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  {block.desc}
+                </p>
+                <ul className="space-y-4">
+                  {block.items.map((item) => (
+                    <li key={item.label} className="flex items-center gap-4">
+                      <div className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      <span className="text-sm">{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="pricing" className="py-32 px-6 md:px-12 bg-secondary/20">
+
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="font-serif text-4xl md:text-6xl mb-6">
@@ -300,7 +378,7 @@ export default function Index() {
                   <h3 className="font-serif text-2xl mb-4 mt-2">{opt.label}</h3>
                   <div className="mb-2">
                     <span className="text-5xl font-bold">
-                      £{opt.priceMin}–£{opt.priceMax}
+                      £{opt.priceMin.toLocaleString()}–£{opt.priceMax.toLocaleString()}
                     </span>
                     <span
                       className={`text-xs uppercase tracking-widest block mt-1 ${
