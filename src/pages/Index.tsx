@@ -298,8 +298,56 @@ export default function Index() {
         </motion.div>
       </section>
 
+      {/* What We Build */}
+      <section id="what-we-build" className="py-32 px-6 md:px-12 border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-4 block">
+              What We Build
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6">
+              Software <span className="italic">&</span> Websites
+            </h2>
+            <p className="text-muted-foreground text-lg font-serif italic max-w-2xl mx-auto">
+              Two practices, one studio. We design the tools that run your business and the sites that grow it.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {whatWeBuild.map((block) => (
+              <motion.div
+                key={block.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-10 rounded-3xl border border-border bg-secondary/20 hover:bg-secondary/40 transition-all"
+              >
+                <h3 className="font-serif text-3xl mb-3">{block.title}</h3>
+                <p className="text-sm uppercase tracking-widest opacity-50 mb-6">
+                  {block.tagline}
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  {block.desc}
+                </p>
+                <ul className="space-y-4">
+                  {block.items.map((item) => (
+                    <li key={item.label} className="flex items-center gap-4">
+                      <div className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      <span className="text-sm">{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="pricing" className="py-32 px-6 md:px-12 bg-secondary/20">
+
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="font-serif text-4xl md:text-6xl mb-6">
