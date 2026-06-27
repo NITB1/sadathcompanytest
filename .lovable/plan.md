@@ -1,52 +1,60 @@
+## Reposition: Custom Software + Web Design Agency
 
+Rework the homepage so Sadath Company is positioned 50/50 as a custom business software studio *and* a web design agency, with software examples (internal dashboards, booking/scheduling, workflow automation) featured prominently.
 
-## Plan: Submissions Database + Admin Page
+### Hero
+- Tagline: "Custom Software & Web Design · For Growing Businesses"
+- Headline: "We build software, you run the business" (italic second line)
+- Description rewritten to emphasize both custom software for small businesses (dashboards, booking, automation) and beautifully designed websites.
 
-### What we'll build
+### New "What We Build" section (above Process)
+Two-column layout with equal weight:
+- **Custom Software** — Internal dashboards, booking & scheduling systems, workflow automation. Brief copy about replacing spreadsheets, saving hours/week, streamlining operations.
+- **Web Design** — Marketing sites, e-commerce, custom builds. Brief copy from current positioning.
 
-1. **Database table** (`submissions`) to store every form entry with fields: name, email, company, role, industry, tier, shortlist_count, stripe_session_id, status (pending/paid), created_at
+Each column shows 3 example use-cases with icons.
 
-2. **Update `create-checkout` edge function** to insert a row into `submissions` when checkout is created (status: "pending")
-
-3. **Payment verification edge function** (`verify-payment`) that checks with Stripe if a session was paid, then updates the submission status to "paid" — called from the payment-success page
-
-4. **Admin page** at `/admin` with:
-   - Password gate (simple shared password stored as a secret)
-   - Table view of all submissions with search/filter
-   - Status badges (pending/paid)
-   - Export to CSV option
-
-5. **RLS policies** on the submissions table:
-   - Insert: allow from service role only (edge function)
-   - Select: allow from service role only (edge function for admin)
-   - A separate admin edge function to fetch submissions securely
-
-### Technical flow
+### Pricing — replace E-Commerce tier with Software tier
+Keep two-card layout. Repurpose the second card:
 
 ```text
-User fills form → clicks pay → create-checkout function:
-  1. Insert row into submissions (status: pending)
-  2. Create Stripe session
-  3. Return checkout URL
-
-After payment → payment-success page:
-  1. Call verify-payment function
-  2. Function checks Stripe session status
-  3. Updates submission row to "paid"
-
-Admin visits /admin:
-  1. Enters password
-  2. Fetches submissions via edge function
-  3. Views table with all entries
+Card 1: Startup Website         Card 2: Custom Software
+£400–£800                       £2,000–£8,000+
+- Up to 5-page custom site      - Discovery & process mapping
+- Mobile-first design           - Custom dashboard or tool
+- Brand & design overhaul       - User auth & roles
+- 1 yr managed hosting          - Integrations (Stripe, email, APIs)
+- Basic SEO & analytics         - Hosting & maintenance
+- Domain configuration          - Training & handover
+                                Badge: "Most Impact"
 ```
 
-### Files to create/modify
-- **New migration**: Create `submissions` table + RLS policies
-- **New secret**: `ADMIN_PASSWORD` for the admin gate
-- **Modified**: `supabase/functions/create-checkout/index.ts` — add DB insert
-- **New**: `supabase/functions/verify-payment/index.ts` — verify and update status
-- **New**: `supabase/functions/get-submissions/index.ts` — fetch submissions (password-protected)
-- **Modified**: `src/pages/PaymentSuccess.tsx` — call verify-payment
-- **New**: `src/pages/Admin.tsx` — admin dashboard
-- **Modified**: `src/App.tsx` — add `/admin` route
+Pricing subtitle updated to mention both software and websites; note that software scope varies and final quote follows a discovery call (consistent with existing custom-SOW positioning).
 
+### Process section
+Keep 5 steps but reframe to cover both software and web work:
+1. Discovery Call — understand business, users, current process
+2. Strategy & Wireframes — map flows, data, screens
+3. Design — interface & brand
+4. Build — software or website, modern stack
+5. Launch & Support — deploy, train, stay on call
+
+### Contact form
+Update service dropdown options:
+- Custom Software (Dashboard / Tool / Automation)
+- Booking or Scheduling System
+- Startup Website (£400–£800)
+- E-Commerce / Custom Site
+- Design Overhaul / Rebrand
+- Consulting
+- Other
+
+### SEO
+- Update `<Seo>` title/description on Index to reflect dual positioning.
+- Update `index.html` default meta + JSON-LD `Organization` description.
+- Update `public/llms.txt` summary.
+
+### Out of scope
+- No backend/Stripe changes (Stripe tier IDs stay as-is — second tier still maps to "Pro").
+- No new pages, no logo changes, no theme changes.
+- Terms/Privacy already cover bespoke SOWs — no edits.
