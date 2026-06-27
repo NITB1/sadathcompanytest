@@ -1,11 +1,11 @@
 # Sadath Company
 
-> Web design studio building beautiful, fast websites for startups — design, build, hosting, and e-commerce, plus strategic consulting.
+> UK studio building custom business software and beautifully designed websites — internal dashboards, booking systems, workflow automation, marketing sites, and e-commerce.
 
-The Sadath Company Ltd is a UK-registered web design and development studio (England & Wales, Company No. 16707212). We work with founders to design, build, and launch websites and online stores, with flat-fee packages and custom Statements of Work per client.
+The Sadath Company Ltd is a UK-registered software and web design studio (England & Wales, Company No. 16707212). We work with growing businesses to design and build custom software (internal tools, dashboards, booking, automation) alongside marketing sites and online stores. Indicative packages are published; every engagement is governed by a bespoke Statement of Work.
 
 ## Pages
 
-- [Home](/): Studio overview, services, packages, process, and contact form.
+- [Home](/): Studio overview, software & web services, packages, process, and contact form.
 - [Privacy Policy](/privacy): How we collect and handle personal data under UK GDPR.
 - [Terms of Service](/terms): Terms governing use of the site and preliminary engagement.
