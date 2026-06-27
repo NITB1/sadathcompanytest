@@ -172,8 +172,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
       <Seo
-        title="Sadath Company — Web Design Agency for Startups"
-        description="We design, build, and launch beautiful websites for startups. Web design, hosting, and e-commerce — plus strategic consulting to bring your idea to life."
+        title="Sadath Company — Custom Software & Web Design Studio"
+        description="UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation, marketing sites, and e-commerce."
         path="/"
       />
       {/* Navigation */}
