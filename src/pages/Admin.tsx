@@ -259,7 +259,15 @@ export default function Admin() {
       s.linkedin_budget ?? "",
       s.status,
     ]);
-    const csv = [headers, ...rows].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n");
+    const sanitizeCell = (val: unknown) => {
+      const str = String(val ?? "");
+      // Prevent CSV formula injection: prefix cells starting with =, +, -, @, tab, or CR with a single quote
+      const needsEscape = /^[=+\-@\t\r]/.test(str);
+      const safe = needsEscape ? `'${str}` : str;
+      // Escape embedded double quotes per RFC 4180
+      return `"${safe.replace(/"/g, '""')}"`;
+    };
+    const csv = [headers, ...rows].map((r) => r.map(sanitizeCell).join(",")).join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
