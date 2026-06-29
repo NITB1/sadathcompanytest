@@ -26,9 +26,9 @@ const t = {
   },
   hero: {
     tagline: "Custom Software & Web Design · For Growing Businesses",
-    title: "We build software, you run the business",
+    title: "We craft the software that runs your business, and the website that grows it.",
     description:
-      "Sadath Company is a UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation — and the marketing sites and stores around them.",
+      "Sadath Company is a UK studio building custom business software and beautifully designed websites — internal dashboards, booking systems, and workflow automation, paired with the marketing sites and stores around them.",
     cta: "Get Started",
   },
   services: {
