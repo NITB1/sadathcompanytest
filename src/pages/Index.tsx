@@ -77,7 +77,7 @@ const pricingOptions = [
     priceMin: 400,
     priceMax: 800,
     features: [
-      "Up to 5-page custom website",
+      "Unlimited pages custom website",
       "Mobile-first responsive design",
       "Brand & design overhaul",
       "1 year managed hosting included",
@@ -88,8 +88,8 @@ const pricingOptions = [
   },
   {
     label: "Custom Software",
-    priceMin: 2000,
-    priceMax: 8000,
+    priceMin: 600,
+    priceMax: 2000,
     features: [
       "Discovery & process mapping",
       "Custom dashboard, tool, or automation",
