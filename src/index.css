@@ -47,4 +47,8 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
 }
