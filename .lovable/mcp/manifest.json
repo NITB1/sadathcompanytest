@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "sadath-company-mcp",
+      "version": "0.1.0",
+      "title": "Sadath Company"
+    },
+    "tools": [
+      {
+        "name": "list_services_and_pricing",
+        "title": "List services & pricing",
+        "description": "Get Sadath Company's public studio packages, indicative GBP price ranges, and the studio process. Use to answer questions about what Sadath builds and what it costs.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_contact_inquiry",
+        "title": "Submit a contact inquiry",
+        "description": "File a new project inquiry with Sadath Company on behalf of a visitor. Captures name, email, optional company, the service they're interested in, and a description of their project. The Sadath team follows up by email within 24 hours.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "Full name of the person inquiring."
+            },
+            "email": {
+              "type": "string",
+              "maxLength": 255,
+              "format": "email",
+              "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+              "description": "Contact email address."
+            },
+            "company": {
+              "description": "Company or project name (optional).",
+              "type": "string",
+              "maxLength": 200
+            },
+            "service": {
+              "type": "string",
+              "enum": [
+                "Custom Software",
+                "Booking or Scheduling System",
+                "Startup Website",
+                "E-Commerce / Custom Site",
+                "Design Overhaul / Rebrand",
+                "Consulting",
+                "Other"
+              ],
+              "description": "Which service they're interested in."
+            },
+            "description": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 1000,
+              "description": "Short description of the project, goals, and timeline."
+            }
+          },
+          "required": [
+            "name",
+            "email",
+            "service",
+            "description"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
