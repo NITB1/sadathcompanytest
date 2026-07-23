@@ -2,6 +2,9 @@ import { createClient } from "@supabase/supabase-js";
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
 
+declare const process: { env: Record<string, string | undefined> };
+
+
 export default defineTool({
   name: "submit_contact_inquiry",
   title: "Submit a contact inquiry",
