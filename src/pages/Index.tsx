@@ -131,26 +131,47 @@ const processSteps = [
 
 const whatWeBuild = [
   {
-    title: "Custom Software",
-    tagline: "Replace the spreadsheet. Save hours every week.",
-    desc: "We build internal tools tailored to how your business actually works — so your team stops fighting software and starts moving faster.",
+    title: "Websites",
+    tagline: "Sites that make small teams look established.",
+    desc: "Custom-designed, fast, accessible websites for startups and small businesses — with hosting, SEO, and domain setup handled.",
     items: [
-      { icon: <LayoutDashboard size={18} />, label: "Internal dashboards & admin panels" },
-      { icon: <CalendarClock size={18} />, label: "Booking & scheduling systems" },
-      { icon: <Workflow size={18} />, label: "Workflow automation & integrations" },
+      { icon: <Globe size={18} />, label: "Marketing & startup websites" },
+      { icon: <Palette size={18} />, label: "Brand & design overhauls" },
+      { icon: <ShieldCheck size={18} />, label: "Managed hosting & maintenance" },
     ],
   },
   {
-    title: "Web Design",
-    tagline: "Beautiful sites that convert visitors into customers.",
-    desc: "Editorial, custom-designed websites and online stores — built fast, accessible by default, and hosted on managed infrastructure.",
+    title: "E-Commerce",
+    tagline: "Sell online without fighting your platform.",
+    desc: "Online stores built around your products and margins, with payments, shipping, and stock wired in from day one.",
     items: [
-      { icon: <Globe size={18} />, label: "Marketing & startup websites" },
-      { icon: <ShoppingBag size={18} />, label: "E-commerce stores (Stripe / Shopify)" },
-      { icon: <Palette size={18} />, label: "Brand & design overhauls" },
+      { icon: <ShoppingBag size={18} />, label: "Custom stores (Stripe / Shopify)" },
+      { icon: <CreditCard size={18} />, label: "Payments, checkout & subscriptions" },
+      { icon: <Boxes size={18} />, label: "Inventory & order management" },
+    ],
+  },
+  {
+    title: "Software",
+    tagline: "Replace the spreadsheet. Save hours every week.",
+    desc: "Internal tools tailored to how your business actually works — so your team stops fighting software and starts moving faster.",
+    items: [
+      { icon: <LayoutDashboard size={18} />, label: "Dashboards & admin panels" },
+      { icon: <CalendarClock size={18} />, label: "Booking & scheduling tools" },
+      { icon: <Code2 size={18} />, label: "Client & customer portals" },
+    ],
+  },
+  {
+    title: "Systems",
+    tagline: "Connect the tools you already pay for.",
+    desc: "We automate the manual steps between your apps — quotes, invoices, CRM, email — so nothing gets rekeyed twice.",
+    items: [
+      { icon: <Workflow size={18} />, label: "Workflow automation" },
+      { icon: <Plug size={18} />, label: "API & third-party integrations" },
+      { icon: <Sparkles size={18} />, label: "Reporting & data clean-up" },
     ],
   },
 ];
+
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
