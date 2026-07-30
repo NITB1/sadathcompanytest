@@ -14,6 +14,11 @@ import {
   Globe,
   ShoppingBag,
   Palette,
+  CreditCard,
+  Boxes,
+  Plug,
+  ShieldCheck,
+  X,
 } from "lucide-react";
 import { useState } from "react";
 import sadathLogo from "@/assets/sadath-logo.png";
@@ -25,12 +30,13 @@ const t = {
     contact: "Get Started",
   },
   hero: {
-    tagline: "Custom Software & Web Design · For Growing Businesses",
+    tagline: "Websites · E-Commerce · Software · Systems",
     title: "Software that runs it, websites that grow it.",
     description:
-      "Sadath Company is a UK studio building custom business software and beautifully designed websites — internal dashboards, booking systems, and workflow automation, paired with the marketing sites and stores around them.",
+      "Sadath Company is a UK studio building websites, online stores, custom software, and the internal systems behind them — from booking and dashboards to workflow automation.",
     cta: "Get Started",
   },
+
   services: {
     title: "Our Process",
     subtitle: "A focused, transparent sprint from messy process to shipped product.",
