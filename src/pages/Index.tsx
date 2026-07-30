@@ -333,10 +333,11 @@ export default function Index() {
               What We Build
             </span>
             <h2 className="font-serif text-4xl md:text-6xl mb-6">
-              Software <span className="italic">&</span> Websites
+              Websites, Stores, <span className="italic">Software &amp; Systems</span>
             </h2>
             <p className="text-muted-foreground text-lg font-serif italic max-w-2xl mx-auto">
-              Two practices, one studio. We design the tools that run your business and the sites that grow it.
+              One studio for the site customers see, the store that sells, and the systems that keep it all running.
+
             </p>
           </div>
 
