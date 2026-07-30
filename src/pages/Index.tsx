@@ -199,7 +199,16 @@ export default function Index() {
     setContactName(name.split(" ")[0] || "");
     setShowThanks(true);
     form.reset();
-    window.location.href = `mailto:contact@sadathcompany.com?subject=${subject}&body=${body}`;
+    // Open the user's email client without navigating away from the thank-you screen
+    const mailto = `mailto:contact@sadathcompany.com?subject=${subject}&body=${body}`;
+    window.setTimeout(() => {
+      const a = document.createElement("a");
+      a.href = mailto;
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, 300);
   };
 
 
