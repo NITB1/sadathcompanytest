@@ -206,9 +206,10 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
       <Seo
-        title="Sadath Company — Custom Software & Web Design Studio"
-        description="UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation, marketing sites, and e-commerce."
+        title="Sadath Company — Websites, E-Commerce, Software &amp; Systems"
+        description="UK studio building websites, online stores, custom software and internal systems for startups and small businesses. Dashboards, booking, automation and integrations."
         path="/"
+
       />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
