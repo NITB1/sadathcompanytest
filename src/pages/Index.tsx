@@ -14,6 +14,11 @@ import {
   Globe,
   ShoppingBag,
   Palette,
+  CreditCard,
+  Boxes,
+  Plug,
+  ShieldCheck,
+  X,
 } from "lucide-react";
 import { useState } from "react";
 import sadathLogo from "@/assets/sadath-logo.png";
@@ -25,12 +30,13 @@ const t = {
     contact: "Get Started",
   },
   hero: {
-    tagline: "Custom Software & Web Design · For Growing Businesses",
+    tagline: "Websites · E-Commerce · Software · Systems",
     title: "Software that runs it, websites that grow it.",
     description:
-      "Sadath Company is a UK studio building custom business software and beautifully designed websites — internal dashboards, booking systems, and workflow automation, paired with the marketing sites and stores around them.",
+      "Sadath Company is a UK studio building websites, online stores, custom software, and the internal systems behind them — from booking and dashboards to workflow automation.",
     cta: "Get Started",
   },
+
   services: {
     title: "Our Process",
     subtitle: "A focused, transparent sprint from messy process to shipped product.",
@@ -125,30 +131,53 @@ const processSteps = [
 
 const whatWeBuild = [
   {
-    title: "Custom Software",
-    tagline: "Replace the spreadsheet. Save hours every week.",
-    desc: "We build internal tools tailored to how your business actually works — so your team stops fighting software and starts moving faster.",
+    title: "Websites",
+    tagline: "Sites that make small teams look established.",
+    desc: "Custom-designed, fast, accessible websites for startups and small businesses — with hosting, SEO, and domain setup handled.",
     items: [
-      { icon: <LayoutDashboard size={18} />, label: "Internal dashboards & admin panels" },
-      { icon: <CalendarClock size={18} />, label: "Booking & scheduling systems" },
-      { icon: <Workflow size={18} />, label: "Workflow automation & integrations" },
+      { icon: <Globe size={18} />, label: "Marketing & startup websites" },
+      { icon: <Palette size={18} />, label: "Brand & design overhauls" },
+      { icon: <ShieldCheck size={18} />, label: "Managed hosting & maintenance" },
     ],
   },
   {
-    title: "Web Design",
-    tagline: "Beautiful sites that convert visitors into customers.",
-    desc: "Editorial, custom-designed websites and online stores — built fast, accessible by default, and hosted on managed infrastructure.",
+    title: "E-Commerce",
+    tagline: "Sell online without fighting your platform.",
+    desc: "Online stores built around your products and margins, with payments, shipping, and stock wired in from day one.",
     items: [
-      { icon: <Globe size={18} />, label: "Marketing & startup websites" },
-      { icon: <ShoppingBag size={18} />, label: "E-commerce stores (Stripe / Shopify)" },
-      { icon: <Palette size={18} />, label: "Brand & design overhauls" },
+      { icon: <ShoppingBag size={18} />, label: "Custom stores (Stripe / Shopify)" },
+      { icon: <CreditCard size={18} />, label: "Payments, checkout & subscriptions" },
+      { icon: <Boxes size={18} />, label: "Inventory & order management" },
+    ],
+  },
+  {
+    title: "Software",
+    tagline: "Replace the spreadsheet. Save hours every week.",
+    desc: "Internal tools tailored to how your business actually works — so your team stops fighting software and starts moving faster.",
+    items: [
+      { icon: <LayoutDashboard size={18} />, label: "Dashboards & admin panels" },
+      { icon: <CalendarClock size={18} />, label: "Booking & scheduling tools" },
+      { icon: <Code2 size={18} />, label: "Client & customer portals" },
+    ],
+  },
+  {
+    title: "Systems",
+    tagline: "Connect the tools you already pay for.",
+    desc: "We automate the manual steps between your apps — quotes, invoices, CRM, email — so nothing gets rekeyed twice.",
+    items: [
+      { icon: <Workflow size={18} />, label: "Workflow automation" },
+      { icon: <Plug size={18} />, label: "API & third-party integrations" },
+      { icon: <Sparkles size={18} />, label: "Reporting & data clean-up" },
     ],
   },
 ];
 
+
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState(0);
+  const [showThanks, setShowThanks] = useState(false);
+  const [contactName, setContactName] = useState("");
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -157,7 +186,8 @@ export default function Index() {
 
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const name = String(fd.get("name") || "").slice(0, 100);
     const email = String(fd.get("email") || "").slice(0, 255);
     const project = String(fd.get("project") || "").slice(0, 100);
@@ -166,15 +196,20 @@ export default function Index() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`
     );
+    setContactName(name.split(" ")[0] || "");
+    setShowThanks(true);
+    form.reset();
     window.location.href = `mailto:contact@sadathcompany.com?subject=${subject}&body=${body}`;
   };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
       <Seo
-        title="Sadath Company — Custom Software & Web Design Studio"
-        description="UK studio building custom business software and beautifully designed websites. Internal dashboards, booking systems, workflow automation, marketing sites, and e-commerce."
+        title="Sadath Company — Websites, E-Commerce, Software &amp; Systems"
+        description="UK studio building websites, online stores, custom software and internal systems for startups and small businesses. Dashboards, booking, automation and integrations."
         path="/"
+
       />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 md:px-12 bg-transparent">
@@ -306,10 +341,11 @@ export default function Index() {
               What We Build
             </span>
             <h2 className="font-serif text-4xl md:text-6xl mb-6">
-              Software <span className="italic">&</span> Websites
+              Websites, Stores, <span className="italic">Software &amp; Systems</span>
             </h2>
             <p className="text-muted-foreground text-lg font-serif italic max-w-2xl mx-auto">
-              Two practices, one studio. We design the tools that run your business and the sites that grow it.
+              One studio for the site customers see, the store that sells, and the systems that keep it all running.
+
             </p>
           </div>
 
@@ -610,6 +646,75 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Thank you overlay */}
+      <AnimatePresence>
+        {showThanks && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Message sent"
+            className="fixed inset-0 z-[80] flex items-center justify-center px-6 bg-background/90 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-lg text-center rounded-3xl border border-border bg-card p-12 shadow-[0_0_80px_-20px_hsl(var(--primary)/0.35)]"
+            >
+              <button
+                onClick={() => setShowThanks(false)}
+                aria-label="Close"
+                className="absolute top-5 right-5 opacity-40 hover:opacity-100 transition-opacity"
+              >
+                <X size={18} />
+              </button>
+              <motion.div
+                initial={{ scale: 0.4, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-20 h-20 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-8"
+              >
+                <CheckCircle2 size={40} />
+              </motion.div>
+              <motion.h3
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.4 }}
+                className="font-serif text-4xl md:text-5xl mb-5 leading-tight"
+              >
+                Thank you{contactName ? `, ${contactName}` : ""}
+                <br />
+                <span className="italic">for getting in touch.</span>
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.4 }}
+                className="text-muted-foreground leading-relaxed mb-10"
+              >
+                Your message is on its way to our team. We read every enquiry personally and will
+                be in touch within 24 hours to arrange a discovery call.
+              </motion.p>
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.45, duration: 0.4 }}
+                onClick={() => setShowThanks(false)}
+                className="text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-10 py-4 rounded-full hover:opacity-90 transition-all"
+              >
+                Back to Site
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+
   );
 }
