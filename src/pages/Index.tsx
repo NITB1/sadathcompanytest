@@ -645,6 +645,75 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Thank you overlay */}
+      <AnimatePresence>
+        {showThanks && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Message sent"
+            className="fixed inset-0 z-[80] flex items-center justify-center px-6 bg-background/90 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-lg text-center rounded-3xl border border-border bg-card p-12 shadow-[0_0_80px_-20px_hsl(var(--primary)/0.35)]"
+            >
+              <button
+                onClick={() => setShowThanks(false)}
+                aria-label="Close"
+                className="absolute top-5 right-5 opacity-40 hover:opacity-100 transition-opacity"
+              >
+                <X size={18} />
+              </button>
+              <motion.div
+                initial={{ scale: 0.4, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-20 h-20 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-8"
+              >
+                <CheckCircle2 size={40} />
+              </motion.div>
+              <motion.h3
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.4 }}
+                className="font-serif text-4xl md:text-5xl mb-5 leading-tight"
+              >
+                Thank you{contactName ? `, ${contactName}` : ""}
+                <br />
+                <span className="italic">for getting in touch.</span>
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.4 }}
+                className="text-muted-foreground leading-relaxed mb-10"
+              >
+                Your message is on its way to our team. We read every enquiry personally and will
+                be in touch within 24 hours to arrange a discovery call.
+              </motion.p>
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.45, duration: 0.4 }}
+                onClick={() => setShowThanks(false)}
+                className="text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-10 py-4 rounded-full hover:opacity-90 transition-all"
+              >
+                Back to Site
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+
   );
 }
