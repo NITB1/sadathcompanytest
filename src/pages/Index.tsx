@@ -176,6 +176,8 @@ const whatWeBuild = [
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState(0);
+  const [showThanks, setShowThanks] = useState(false);
+  const [contactName, setContactName] = useState("");
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -184,7 +186,8 @@ export default function Index() {
 
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const name = String(fd.get("name") || "").slice(0, 100);
     const email = String(fd.get("email") || "").slice(0, 255);
     const project = String(fd.get("project") || "").slice(0, 100);
@@ -193,8 +196,12 @@ export default function Index() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`
     );
+    setContactName(name.split(" ")[0] || "");
+    setShowThanks(true);
+    form.reset();
     window.location.href = `mailto:contact@sadathcompany.com?subject=${subject}&body=${body}`;
   };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-muted-foreground/30">
