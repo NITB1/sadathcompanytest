@@ -79,26 +79,28 @@ const t = {
 
 const pricingOptions = [
   {
-    label: "Startup Website",
+    label: "Custom Websites",
     priceMin: 400,
     priceMax: 800,
     features: [
       "Unlimited pages custom website",
+      "Individually designed websites",
       "Mobile-first responsive design",
       "Brand & design overhaul",
-      "1 year managed hosting included",
+      "4 years managed hosting and security",
       "Basic SEO setup & analytics",
       "Domain configuration",
     ],
     badge: null,
   },
   {
-    label: "Custom Software",
+    label: "Custom Systems",
     priceMin: 600,
     priceMax: 2000,
     features: [
       "Discovery & process mapping",
       "Custom dashboard, tool, or automation",
+      "Free custom to-do list included",
       "User authentication & roles",
       "Integrations (Stripe, email, APIs)",
       "Managed hosting & maintenance",
@@ -109,14 +111,15 @@ const pricingOptions = [
 ];
 
 const serviceOptions = [
-  "Custom Software (Dashboard / Tool / Automation)",
+  "Custom Systems (Dashboard / Tool / Automation)",
   "Booking or Scheduling System",
-  "Startup Website (£400–£800)",
+  "Custom Website (£400–£800)",
   "E-Commerce / Custom Site",
   "Design Overhaul / Rebrand",
   "Consulting",
   "Other",
 ];
+
 
 const inputClasses =
   "w-full bg-background/50 border border-input rounded-2xl px-5 py-4 text-foreground focus:outline-none focus:border-foreground/30 transition-all placeholder:text-muted-foreground";
