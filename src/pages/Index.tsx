@@ -563,7 +563,18 @@ export default function Index() {
               <span>Send Message</span>
               <ArrowRight size={16} />
             </button>
+
+            <p className="text-center text-sm opacity-60">
+              or reach out on{" "}
+              <a
+                href="mailto:contact@sadathcompany.com"
+                className="underline underline-offset-4 hover:opacity-100 opacity-80 transition-opacity"
+              >
+                contact@sadathcompany.com
+              </a>
+            </p>
           </form>
+
         </div>
       </section>
 
