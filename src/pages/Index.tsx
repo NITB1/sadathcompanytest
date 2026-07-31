@@ -358,26 +358,27 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whatWeBuild.map((block) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {whatWeBuild.map((block, i) => (
               <motion.div
                 key={block.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="p-10 rounded-3xl border border-border bg-secondary/20 hover:bg-secondary/40 transition-all"
+                transition={{ delay: i * 0.08 }}
+                className="h-full flex flex-col p-8 rounded-2xl border border-border bg-card hover:bg-secondary/40 hover:-translate-y-1 transition-all shadow-sm"
               >
-                <h3 className="font-serif text-3xl mb-3">{block.title}</h3>
-                <p className="text-sm uppercase tracking-widest opacity-50 mb-6">
+                <h3 className="font-serif text-2xl mb-2">{block.title}</h3>
+                <p className="text-[10px] uppercase tracking-[0.2em] opacity-50 mb-5">
                   {block.tagline}
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                   {block.desc}
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-4 mt-auto">
                   {block.items.map((item) => (
-                    <li key={item.label} className="flex items-center gap-4">
-                      <div className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
+                    <li key={item.label} className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0">
                         {item.icon}
                       </div>
                       <span className="text-sm">{item.label}</span>
@@ -387,6 +388,7 @@ export default function Index() {
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
