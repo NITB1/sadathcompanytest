@@ -21,6 +21,8 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 import sadathLogo from "@/assets/sadath-logo.png";
 import { Seo } from "@/components/Seo";
 
@@ -181,13 +183,14 @@ export default function Index() {
   const [selectedPkg, setSelectedPkg] = useState(0);
   const [showThanks, setShowThanks] = useState(false);
   const [contactName, setContactName] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
@@ -195,24 +198,29 @@ export default function Index() {
     const email = String(fd.get("email") || "").slice(0, 255);
     const project = String(fd.get("project") || "").slice(0, 100);
     const message = String(fd.get("message") || "").slice(0, 1000);
-    const subject = encodeURIComponent(`New project inquiry — ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\n\n${message}`
-    );
-    setContactName(name.split(" ")[0] || "");
-    setShowThanks(true);
-    form.reset();
-    // Open the user's email client without navigating away from the thank-you screen
-    const mailto = `mailto:contact@sadathcompany.com?subject=${subject}&body=${body}`;
-    window.setTimeout(() => {
-      const a = document.createElement("a");
-      a.href = mailto;
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }, 300);
+
+    setIsSending(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: { name, email, project, message },
+      });
+      if (error) throw error;
+      setContactName(name.split(" ")[0] || "");
+      setShowThanks(true);
+      form.reset();
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast({
+        title: "Message not sent",
+        description:
+          "Something went wrong. Please email contact@sadathcompany.com directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
+
 
 
   return (
@@ -566,11 +574,13 @@ export default function Index() {
 
             <button
               type="submit"
-              className="w-full group flex items-center justify-center space-x-3 text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90"
+              disabled={isSending}
+              className="w-full group flex items-center justify-center space-x-3 text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span>Send Message</span>
+              <span>{isSending ? "Sending…" : "Send Message"}</span>
               <ArrowRight size={16} />
             </button>
+
 
             <p className="text-center text-sm opacity-60">
               or reach out on{" "}
