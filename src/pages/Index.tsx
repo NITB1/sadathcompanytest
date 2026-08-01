@@ -574,11 +574,13 @@ export default function Index() {
 
             <button
               type="submit"
-              className="w-full group flex items-center justify-center space-x-3 text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90"
+              disabled={isSending}
+              className="w-full group flex items-center justify-center space-x-3 text-[11px] font-bold tracking-[0.2em] uppercase bg-primary text-primary-foreground py-5 rounded-2xl transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span>Send Message</span>
+              <span>{isSending ? "Sending…" : "Send Message"}</span>
               <ArrowRight size={16} />
             </button>
+
 
             <p className="text-center text-sm opacity-60">
               or reach out on{" "}
