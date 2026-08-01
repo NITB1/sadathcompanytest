@@ -300,10 +300,13 @@ export default function Index() {
             loop
             muted
             playsInline
-            className="object-cover w-full h-full opacity-30 grayscale"
+            preload="metadata"
+            disablePictureInPicture
+            className="object-cover w-full h-full opacity-30 grayscale transform-gpu [contain:paint]"
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
+
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
         </div>
 
